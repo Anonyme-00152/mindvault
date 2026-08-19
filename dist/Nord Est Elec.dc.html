@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#141414">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#141414"/>
+    <path d="M660 100 420 460 h140 l-100 260 300-400 h-150z" fill="#e8703a"/>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+  <meta property="og:title" content="Nord Est Elec — Électricien général à Bischwiller">
+  <meta property="og:description" content="Installation, rénovation, mise aux normes et dépannage électrique pour particuliers et professionnels dans le Bas-Rhin.">
+  <meta property="og:image" content="assets/logo.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <script src="./image-slot.js"></script>
+  <style>
+    html{scroll-behavior:smooth;}
+    body{margin:0;background:oklch(0.985 0.003 90);overflow-x:hidden;}
+    *{box-sizing:border-box;}
+    ::selection{background:oklch(0.71 0.19 45);color:#fff;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+    @keyframes fadeLeft{from{opacity:0;transform:translateX(36px);}to{opacity:1;transform:translateX(0);}}
+    @keyframes heroImgSlideIn{from{opacity:0;transform:translateX(140px);}to{opacity:1;transform:translateX(0);}}
+    @keyframes caretBlink{0%,50%{opacity:1;}51%,100%{opacity:0;}}
+    @keyframes marqueeScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+    @keyframes sepPulse{0%,100%{width:36px;opacity:0.85;}50%{width:56px;opacity:1;}}
+    @keyframes iconBreathe{0%,100%{transform:scale(1);}50%{transform:scale(1.09);}}
+    @keyframes ringPulseOut{0%{transform:scale(0.85);opacity:0.55;}100%{transform:scale(1.6);opacity:0;}}
+    @keyframes statGlow{0%,100%{text-shadow:0 0 0 transparent;}50%{text-shadow:0 0 16px currentColor;}}
+    @keyframes timelineDot{0%{top:-6%;opacity:0;}8%{opacity:1;}92%{opacity:1;}100%{top:106%;opacity:0;}}
+    .neel-sep{animation:sepPulse 3.2s ease-in-out infinite;}
+    .neel-icon-breathe{animation:iconBreathe 3.4s ease-in-out infinite;}
+    @keyframes dashMove{to{stroke-dashoffset:-200;}}
+    @keyframes pulseGlow{0%,100%{opacity:0.55;}50%{opacity:1;}}
+    @keyframes spinSlow{to{transform:rotate(360deg);}}
+    @keyframes shimmerMove{0%{background-position:-150% 0;}100%{background-position:150% 0;}}
+    @keyframes headerSheen{0%,72%{transform:translateX(-130%) skewX(-12deg);}86%{transform:translateX(130%) skewX(-12deg);}100%{transform:translateX(130%) skewX(-12deg);}}
+    @keyframes headerCurrent{0%,72%{transform:translateX(-105%);opacity:0;}74%{opacity:1;}84%{opacity:1;}88%{transform:translateX(105%);opacity:0;}100%{transform:translateX(105%);opacity:0;}}
+    @keyframes heroSurge{0%,80%{transform:translateX(-160%) skewX(-15deg);opacity:0;}83%{opacity:1;}93%{transform:translateX(160%) skewX(-15deg);opacity:1;}100%{transform:translateX(180%) skewX(-15deg);opacity:0;}}
+    @keyframes heroFlash{0%,81%{opacity:0;}87%{opacity:1;}95%{opacity:0;}100%{opacity:0;}}
+    @keyframes heroBolt{0%,45%{opacity:0;stroke-dashoffset:100;}46%{opacity:1;}70%{stroke-dashoffset:-35;opacity:1;}73%{opacity:0;}100%{opacity:0;stroke-dashoffset:-35;}}
+    @keyframes wordReveal{from{opacity:0;filter:blur(10px);transform:translateY(14px);}to{opacity:1;filter:blur(0);transform:translateY(0);}}
+    @keyframes emberDrift{0%{transform:translate(0,0);opacity:0;}15%{opacity:0.8;}85%{opacity:0.6;}100%{transform:translate(var(--dx),-160px);opacity:0;}}
+    @keyframes ctaHalo{0%,100%{transform:scale(1);opacity:0.55;}50%{transform:scale(1.35);opacity:0.15;}}
+    @keyframes ringPulse{0%{transform:scale(0.6);opacity:0.8;}100%{transform:scale(3.2);opacity:0;}}
+    @keyframes logoPulse{0%,100%{opacity:0.4;transform:scale(0.92);filter:drop-shadow(0 0 6px oklch(0.71 0.19 45 / 0.3));}50%{opacity:1;transform:scale(1.08);filter:drop-shadow(0 0 26px oklch(0.71 0.19 45 / 0.9));}}
+    image-slot::part(empty){position:relative;overflow:hidden;}
+    image-slot::part(empty)::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg, transparent 30%, oklch(1 0 0 / 0.5) 50%, transparent 70%);background-size:250% 100%;animation:shimmerMove 2.6s ease-in-out infinite;pointer-events:none;}
+    .neel-reveal{opacity:0;transform:perspective(1000px) translateY(56px) scale(0.94) rotateX(8deg);transition:opacity 0.9s cubic-bezier(.16,.8,.24,1),transform 0.9s cubic-bezier(.16,.8,.24,1);transform-origin:center bottom;will-change:transform,opacity;}
+    .neel-reveal.is-in{opacity:1;transform:perspective(1000px) translateY(0) scale(1) rotateX(0deg);}
+    .neel-card{transition:transform 0.45s cubic-bezier(.2,.7,.2,1),box-shadow 0.45s cubic-bezier(.2,.7,.2,1),border-color 0.3s;transform-style:preserve-3d;}
+    .neel-tilt{perspective:900px;}
+    .neel-grid-3 > .neel-reveal:nth-child(2){transition-delay:0.09s;}
+    .neel-grid-3 > .neel-reveal:nth-child(3){transition-delay:0.18s;}
+    .neel-grid-3 > .neel-reveal:nth-child(4){transition-delay:0.27s;}
+    .neel-grid-3 > .neel-reveal:nth-child(n+5){transition-delay:0.36s;}
+    a{color:oklch(0.6 0.12 222);text-decoration:none;}
+    a:hover{color:oklch(0.71 0.19 45);}
+    input,select,textarea{font-family:'Inter',sans-serif;}
+    input:focus,select:focus,textarea:focus{outline:2px solid oklch(0.72 0.12 222);outline-offset:1px;}
+    @media (max-width: 1040px){
+      .neel-nav-links{display:none !important;}
+      .neel-mobile-btn{display:block !important;}
+    }
+    @media (max-width: 860px){
+      .neel-hide-mobile{display:none !important;}
+      .neel-nav-links{display:none !important;}
+      .neel-grid-3{grid-template-columns:1fr !important;}
+      .neel-grid-2{grid-template-columns:1fr !important;}
+      .neel-hero-split{grid-template-columns:1fr !important;}
+      .neel-hero-split > div:nth-child(2){min-height:340px !important;}
+      .neel-stats-row{grid-template-columns:1fr 1fr !important;}
+      .neel-h1{font-size:40px !important;}
+      .neel-h2{font-size:30px !important;}
+      .neel-sticky-bar{display:flex !important;}
+      .neel-hero-badge{left:12px !important;transform:scale(0.82);transform-origin:bottom left;}
+      .neel-hero-img-bleed{inset:0 !important;}
+      .neel-wa-btn{bottom:82px !important;}
+    }
+    @media (max-width: 520px){
+      .neel-hero-badge{padding:12px 14px !important;}
+    }
+    @media (max-width: 520px){
+      .neel-stats-row{grid-template-columns:1fr !important;}
+      .neel-h1{font-size:32px !important;}
+      .neel-h2{font-size:26px !important;}
+      .neel-tel-pill{padding:8px 10px !important;}
+      .neel-tel-text{display:none !important;}
+    }
+    @media print{
+      .neel-print-hide{display:none !important;}
+      body{background:#fff !important;}
+    }
+  </style>
+</helmet>
+<div style="min-height:100vh;background:{{ pageBg }};font-family:'Inter',sans-serif;color:{{ pageText }};position:relative;overflow-x:hidden;transition:background 0.4s ease,color 0.4s ease;">
+
+  <sc-if value="{{ showIntro }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:300;background:#0d0d0d;display:flex;align-items:center;justify-content:center;opacity:{{ introOpacity }};transition:opacity 0.9s ease;pointer-events:{{ introPointerEvents }};">
+      <img src="assets/logo.jpg" alt="Nord Est Elec" style="width:180px;height:180px;object-fit:contain;border-radius:50%;animation:logoPulse 2s ease-in-out infinite;">
+    </div>
+  </sc-if>
+
+  <div class="neel-print-hide" style="position:fixed;top:0;left:0;height:3px;background:oklch(0.71 0.19 45);z-index:150;width:{{ scrollProgress }}%;box-shadow:0 0 8px oklch(0.71 0.19 45 / 0.6);"></div>
+
+  <div class="neel-print-hide" style="position:fixed;top:0;left:0;right:0;z-index:100;background:{{ headerBg }};backdrop-filter:blur(14px);border-bottom:1px solid {{ headerBorder }};overflow:hidden;transition:background 0.4s ease,box-shadow 0.3s ease;box-shadow:{{ headerShadow }};">
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(100deg, transparent 0%, oklch(0.75 0.15 220 / 0.35) 38%, oklch(1 0.02 90 / 0.55) 50%, oklch(0.71 0.19 45 / 0.35) 62%, transparent 100%);animation:headerSheen 11s ease-in-out infinite;pointer-events:none;"></div>
+    <div style="position:absolute;bottom:0;left:0;width:100%;height:2px;background:linear-gradient(90deg, transparent, oklch(0.71 0.19 45), oklch(0.85 0.15 80), oklch(0.71 0.19 45), transparent);box-shadow:0 0 12px oklch(0.71 0.19 45 / 0.9);animation:headerCurrent 11s ease-in-out infinite;pointer-events:none;"></div>
+    <div style="max-width:1280px;margin:0 auto;padding:{{ headerPadY }} 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;transition:padding 0.3s ease;">
+      <div style="display:flex;align-items:center;gap:12px;cursor:pointer;" onClick="{{ goHome }}">
+        <img src="assets/logo-icon.jpg" alt="Nord Est Elec" style="width:{{ logoSize }};height:{{ logoSize }};border-radius:50%;object-fit:cover;flex-shrink:0;box-shadow:0 0 0 2px oklch(0.71 0.19 45 / 0.4);transition:transform 0.4s cubic-bezier(.2,.7,.2,1),width 0.3s ease,height 0.3s ease;" style-hover="transform:rotate(-8deg) scale(1.06);">
+        <div style="display:flex;flex-direction:column;line-height:1.05;">
+          <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;color:#fff;letter-spacing:0.02em;">NORD EST ELEC</span>
+          <span style="font-size:10px;letter-spacing:0.14em;color:{{ headerMuted }};text-transform:uppercase;">Bischwiller · Bas-Rhin</span>
+        </div>
+      </div>
+
+      <div class="neel-nav-links" style="display:flex;align-items:center;gap:2px;">
+        <button onClick="{{ goHome }}" style="white-space:nowrap;color:{{ homeNavColor }};background:none;border:none;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;padding:9px 11px;border-radius:100px;cursor:pointer;transition:background 0.25s;" style-hover="background:oklch(1 0 0 / 0.08);">{{ t.navHome }}</button>
+        <button onClick="{{ goAbout }}" style="white-space:nowrap;color:{{ aboutNavColor }};background:none;border:none;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;padding:9px 11px;border-radius:100px;cursor:pointer;transition:background 0.25s;" style-hover="background:oklch(1 0 0 / 0.08);">{{ t.navAbout }}</button>
+        <button onClick="{{ goServices }}" style="white-space:nowrap;color:{{ servicesNavColor }};background:none;border:none;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;padding:9px 11px;border-radius:100px;cursor:pointer;transition:background 0.25s;" style-hover="background:oklch(1 0 0 / 0.08);">{{ t.navServices }}</button>
+        <button onClick="{{ goProjects }}" style="white-space:nowrap;color:{{ projectsNavColor }};background:none;border:none;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;padding:9px 11px;border-radius:100px;cursor:pointer;transition:background 0.25s;" style-hover="background:oklch(1 0 0 / 0.08);">{{ t.navProjects }}</button>
+        <button onClick="{{ goReviews }}" style="white-space:nowrap;color:{{ reviewsNavColor }};background:none;border:none;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;padding:9px 11px;border-radius:100px;cursor:pointer;transition:background 0.25s;" style-hover="background:oklch(1 0 0 / 0.08);">{{ t.navReviews }}</button>
+        <button onClick="{{ goContact }}" style="white-space:nowrap;color:{{ contactNavColor }};background:none;border:none;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;padding:9px 11px;border-radius:100px;cursor:pointer;transition:background 0.25s;" style-hover="background:oklch(1 0 0 / 0.08);">{{ t.navContact }}</button>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:8px;">
+        <button onClick="{{ toggleTheme }}" aria-label="Changer de thème" style="background:oklch(1 0 0 / 0.1);border:1px solid oklch(1 0 0 / 0.18);color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.25s;" style-hover="background:oklch(1 0 0 / 0.18);">
+          <sc-if value="{{ isLight }}" hint-placeholder-val="{{ false }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+          </sc-if>
+          <sc-if value="{{ isDark }}" hint-placeholder-val="{{ true }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"></path></svg>
+          </sc-if>
+        </button>
+        <button onClick="{{ toggleLang }}" class="neel-hide-mobile" style="background:oklch(1 0 0 / 0.06);border:1px solid oklch(1 0 0 / 0.14);color:#fff;font-size:11px;font-weight:700;padding:6px 10px;border-radius:100px;cursor:pointer;letter-spacing:0.04em;">{{ lang }}</button>
+        <div class="neel-hide-mobile" style="display:flex;align-items:center;gap:6px;color:oklch(0.85 0.15 80);font-size:11px;font-weight:700;">
+          <span style="width:6px;height:6px;border-radius:50%;background:oklch(0.71 0.19 45);box-shadow:0 0 8px oklch(0.71 0.19 45);animation:pulseGlow 2s ease-in-out infinite;"></span>
+          Dépannage rapide
+        </div>
+        <a href="tel:0699399518" class="neel-tel-pill" style="display:flex;flex-direction:column;align-items:flex-start;gap:0;background:oklch(0.71 0.19 45);color:#fff;padding:8px 16px;border-radius:100px;font-weight:700;font-size:14px;white-space:nowrap;flex-shrink:0;box-shadow:0 0 24px oklch(0.71 0.19 45 / 0.45);transition:transform 0.3s,box-shadow 0.3s;" style-hover="transform:translateY(-2px) scale(1.03);box-shadow:0 0 30px oklch(0.71 0.19 45 / 0.65);">
+          <span style="display:flex;align-items:center;gap:8px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .6 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.5 2.9.6a2 2 0 0 1 1.7 2z"></path></svg>
+            <span class="neel-tel-text">06 99 39 95 18</span>
+          </span>
+          <span class="neel-hide-mobile" style="font-size:9px;font-weight:500;opacity:0.85;margin-left:23px;">Appel &amp; devis gratuits</span>
+        </a>
+        <button onClick="{{ toggleMobile }}" style="display:none;background:none;border:none;color:#fff;cursor:pointer;flex-shrink:0;" class="neel-mobile-btn">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+        </button>
+      </div>
+    </div>
+
+    <sc-if value="{{ mobileOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:8px 20px 20px;display:flex;flex-direction:column;gap:2px;border-top:1px solid oklch(1 0 0 / 0.08);">
+        <button onClick="{{ goHome }}" style="text-align:left;color:#fff;background:none;border:none;font-size:16px;font-weight:600;padding:12px 8px;cursor:pointer;">Accueil</button>
+        <button onClick="{{ goAbout }}" style="text-align:left;color:#fff;background:none;border:none;font-size:16px;font-weight:600;padding:12px 8px;cursor:pointer;">À propos</button>
+        <button onClick="{{ goServices }}" style="text-align:left;color:#fff;background:none;border:none;font-size:16px;font-weight:600;padding:12px 8px;cursor:pointer;">Services</button>
+        <button onClick="{{ goProjects }}" style="text-align:left;color:#fff;background:none;border:none;font-size:16px;font-weight:600;padding:12px 8px;cursor:pointer;">Réalisations</button>
+        <button onClick="{{ goReviews }}" style="text-align:left;color:#fff;background:none;border:none;font-size:16px;font-weight:600;padding:12px 8px;cursor:pointer;">Avis &amp; FAQ</button>
+        <button onClick="{{ goContact }}" style="text-align:left;color:#fff;background:none;border:none;font-size:16px;font-weight:600;padding:12px 8px;cursor:pointer;">Contact</button>
+        <a href="tel:0699399518" style="margin-top:8px;text-align:center;background:oklch(0.71 0.19 45);color:#fff;padding:12px;border-radius:100px;font-weight:700;">{{ t.ctaCallShort }} · 06 99 39 95 18</a>
+        <button onClick="{{ toggleLang }}" style="margin-top:6px;background:oklch(1 0 0 / 0.06);border:1px solid oklch(1 0 0 / 0.14);color:#fff;font-size:13px;font-weight:700;padding:10px;border-radius:100px;cursor:pointer;">{{ lang }} — Switch language</button>
+      </div>
+    </sc-if>
+  </div>
+
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+    <div>
+
+      <sc-if value="{{ isHeroA }}" hint-placeholder-val="{{ true }}">
+        <div style="position:relative;background:{{ navyBg }};padding-top:96px;overflow:hidden;">
+          <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none;">
+            <svg width="100%" height="100%" viewBox="0 0 1280 1100" style="position:absolute;inset:0;" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="boltGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="oklch(0.71 0.19 45)" stop-opacity="0.35"></stop>
+                  <stop offset="55%" stop-color="oklch(0.85 0.15 80)" stop-opacity="0.8"></stop>
+                  <stop offset="100%" stop-color="oklch(0.97 0.03 90)" stop-opacity="1"></stop>
+                </linearGradient>
+              </defs>
+              <path d="M430 -20 L310 300 L430 300 L250 620 L370 620 L190 1050" pathLength="100" stroke="url(#boltGrad)" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="35 65" style="animation:heroBolt 8s linear infinite;animation-delay:-6.3s;filter:drop-shadow(0 0 14px oklch(0.85 0.15 80)) blur(0.4px);"></path>
+            </svg>
+          </div>
+          <svg width="100%" height="100%" viewBox="0 0 1280 760" style="position:absolute;inset:0;opacity:0.35;pointer-events:none;" preserveAspectRatio="xMidYMid slice">
+          </svg>
+          <div class="neel-hero-split" style="position:relative;max-width:1280px;margin:0 auto;padding:64px 28px 0;display:grid;grid-template-columns:1.05fr 0.95fr;gap:40px;align-items:center;">
+            <div style="padding-bottom:72px;">
+              <div style="display:inline-flex;align-items:center;gap:8px;background:oklch(1 0 0 / 0.06);border:1px solid oklch(1 0 0 / 0.12);color:oklch(0.75 0.1 222);padding:7px 14px;border-radius:100px;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;animation:fadeUp 0.7s cubic-bezier(.2,.7,.2,1) both;">
+                <span style="width:6px;height:6px;border-radius:50%;background:oklch(0.71 0.19 45);box-shadow:0 0 10px oklch(0.71 0.19 45);animation:pulseGlow 2s ease-in-out infinite;"></span>
+                {{ t.heroABadge }}
+              </div>
+              <h1 class="neel-h1" style="font-family:'Space Grotesk',sans-serif;font-size:58px;line-height:1.04;font-weight:700;color:#fff;margin:22px 0 0;letter-spacing:-0.01em;min-height:2.2em;animation:fadeUp 0.8s cubic-bezier(.2,.7,.2,1) 0.08s both;">
+                {{ heroATitlePrefix }}<span style="color:oklch(0.71 0.19 45);">{{ heroASuffixDisplay }}</span><span style="display:inline-block;width:3px;height:44px;background:oklch(0.71 0.19 45);margin-left:2px;vertical-align:-6px;animation:caretBlink 0.85s step-end infinite;"></span>
+              </h1>
+              <p style="font-size:18px;line-height:1.6;color:oklch(0.72 0.01 260);margin:22px 0 0;max-width:480px;animation:fadeUp 0.8s cubic-bezier(.2,.7,.2,1) 0.16s both;">
+                {{ t.heroASub }}
+              </p>
+              <div style="display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;animation:fadeUp 0.8s cubic-bezier(.2,.7,.2,1) 0.24s both;">
+                <button onClick="{{ goContact }}" style="background:oklch(0.71 0.19 45);color:#fff;border:none;padding:16px 26px;border-radius:100px;font-weight:700;font-size:15px;cursor:pointer;box-shadow:0 12px 32px oklch(0.71 0.19 45 / 0.35);transition:transform 0.3s,box-shadow 0.3s;" style-hover="transform:translateY(-3px) scale(1.03);box-shadow:0 16px 40px oklch(0.71 0.19 45 / 0.5);">{{ t.ctaQuote }}</button>
+                <a href="tel:0699399518" style="display:flex;align-items:center;gap:10px;color:#fff;border:1px solid oklch(1 0 0 / 0.2);padding:16px 24px;border-radius:100px;font-weight:600;font-size:15px;transition:background 0.3s,transform 0.3s;" style-hover="background:oklch(1 0 0 / 0.08);transform:translateY(-2px);">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .6 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.5 2.9.6a2 2 0 0 1 1.7 2z"></path></svg>
+                  06 99 39 95 18
+                </a>
+              </div>
+              <div style="display:flex;gap:22px;margin-top:40px;flex-wrap:wrap;animation:fadeUp 0.8s cubic-bezier(.2,.7,.2,1) 0.32s both;">
+                <div style="display:flex;align-items:center;gap:8px;color:oklch(0.65 0.01 260);font-size:13px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="oklch(0.71 0.19 45)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>{{ t.trustAssured }}</div>
+                <div style="display:flex;align-items:center;gap:8px;color:oklch(0.65 0.01 260);font-size:13px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="oklch(0.71 0.19 45)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>{{ t.trustQuote }}</div>
+                <div style="display:flex;align-items:center;gap:8px;color:oklch(0.65 0.01 260);font-size:13px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="oklch(0.71 0.19 45)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>{{ t.trustSince }}</div>
+              </div>
+            </div>
+            <div ref="{{ setHeroRef }}" style="position:relative;min-height:520px;animation:heroImgSlideIn 1.1s cubic-bezier(.16,.8,.24,1) 0.1s both;">
+              <div class="neel-hero-img-bleed" style="position:absolute;inset:0 -28px 0 0;border-radius:24px 0 0 24px;overflow:hidden;">
+                <image-slot id="hero-electrician" shape="rect" placeholder="PHOTO — électricien au travail" style="width:100%;height:100%;"></image-slot>
+                <div style="position:absolute;inset:0;background:linear-gradient(90deg, oklch(0.14 0.004 260) 0%, transparent 30%);pointer-events:none;"></div>
+              </div>
+              <div class="neel-hero-badge" style="position:absolute;left:-24px;bottom:56px;background:oklch(0.16 0.006 260 / 0.9);backdrop-filter:blur(10px);border:1px solid oklch(1 0 0 / 0.1);border-radius:16px;padding:18px 22px;box-shadow:0 20px 50px rgba(0,0,0,0.4);animation:floatY 5s ease-in-out infinite;">
+                <div style="font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:oklch(0.71 0.19 45);">Depuis 2015</div>
+                <div style="font-size:12px;color:oklch(0.65 0.01 260);margin-top:2px;">d'expertise terrain</div>
+              </div>
+              <div class="neel-hero-badge" style="position:absolute;left:-24px;top:40px;background:oklch(0.16 0.006 260 / 0.9);backdrop-filter:blur(10px);border:1px solid oklch(1 0 0 / 0.1);border-radius:16px;padding:16px 20px;box-shadow:0 20px 50px rgba(0,0,0,0.4);animation:floatY 6s ease-in-out infinite 1s;">
+                <div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:oklch(0.68 0.12 222);animation:statGlow 3.2s ease-in-out infinite;">&lt;{{ counters.delai }}h</div>
+                <div style="font-size:12px;color:oklch(0.65 0.01 260);margin-top:2px;">délai d'intervention</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isHeroB }}" hint-placeholder-val="{{ false }}">
+        <div style="position:relative;background:{{ navyBg }};padding-top:96px;overflow:hidden;">
+          <div style="position:absolute;inset:0;">
+            <image-slot id="hero-b-bg" shape="rect" placeholder="PHOTO — installation électrique en cours" style="width:100%;height:100%;"></image-slot>
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg, oklch(0.14 0.004 260 / 0.55) 0%, oklch(0.14 0.004 260 / 0.85) 65%, oklch(0.14 0.004 260) 100%);"></div>
+          </div>
+          <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none;">
+            <div style="position:absolute;left:12%;bottom:0;width:5px;height:5px;border-radius:50%;background:oklch(0.75 0.19 60);box-shadow:0 0 8px oklch(0.71 0.19 45 / 0.9);--dx:20px;animation:emberDrift 7s ease-in infinite;animation-delay:0.2s;"></div>
+            <div style="position:absolute;left:24%;bottom:0;width:4px;height:4px;border-radius:50%;background:oklch(0.8 0.15 70);box-shadow:0 0 6px oklch(0.71 0.19 45 / 0.8);--dx:-16px;animation:emberDrift 8.5s ease-in infinite;animation-delay:2.4s;"></div>
+            <div style="position:absolute;left:68%;bottom:0;width:5px;height:5px;border-radius:50%;background:oklch(0.75 0.19 60);box-shadow:0 0 8px oklch(0.71 0.19 45 / 0.9);--dx:-24px;animation:emberDrift 9.5s ease-in infinite;animation-delay:1.1s;"></div>
+            <div style="position:absolute;left:80%;bottom:0;width:4px;height:4px;border-radius:50%;background:oklch(0.8 0.15 70);box-shadow:0 0 6px oklch(0.71 0.19 45 / 0.8);--dx:18px;animation:emberDrift 6.5s ease-in infinite;animation-delay:3.5s;"></div>
+            <div style="position:absolute;left:45%;bottom:0;width:3px;height:3px;border-radius:50%;background:oklch(0.85 0.12 80);box-shadow:0 0 5px oklch(0.71 0.19 45 / 0.7);--dx:10px;animation:emberDrift 10s ease-in infinite;animation-delay:5s;"></div>
+            <svg width="100%" height="100%" viewBox="0 0 1280 1100" style="position:absolute;inset:0;" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="boltGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="oklch(0.71 0.19 45)" stop-opacity="0.35"></stop>
+                  <stop offset="55%" stop-color="oklch(0.85 0.15 80)" stop-opacity="0.8"></stop>
+                  <stop offset="100%" stop-color="oklch(0.97 0.03 90)" stop-opacity="1"></stop>
+                </linearGradient>
+              </defs>
+              <path d="M430 -20 L310 300 L430 300 L250 620 L370 620 L190 1050" pathLength="100" stroke="url(#boltGrad)" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="35 65" style="animation:heroBolt 8s linear infinite;animation-delay:-6.3s;filter:drop-shadow(0 0 14px oklch(0.85 0.15 80)) blur(0.4px);"></path>
+            </svg>
+          </div>
+          <div style="position:relative;max-width:900px;margin:0 auto;padding:120px 28px 100px;text-align:center;">
+            <div style="display:inline-flex;align-items:center;gap:8px;background:oklch(1 0 0 / 0.08);border:1px solid oklch(1 0 0 / 0.14);color:oklch(0.75 0.1 222);padding:7px 14px;border-radius:100px;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;animation:fadeUp 0.7s cubic-bezier(.2,.7,.2,1) both;">
+              <span style="width:6px;height:6px;border-radius:50%;background:oklch(0.71 0.19 45);box-shadow:0 0 10px oklch(0.71 0.19 45);animation:pulseGlow 2s ease-in-out infinite;"></span>
+              Bischwiller · Bas-Rhin · Grand Est
+            </div>
+            <h1 class="neel-h1" style="font-family:'Space Grotesk',sans-serif;font-size:56px;line-height:1.05;font-weight:700;color:#fff;margin:22px 0 0;">
+              <span style="display:inline-block;animation:wordReveal 0.6s cubic-bezier(.2,.7,.2,1) 0.15s both;">Une</span> <span style="display:inline-block;animation:wordReveal 0.6s cubic-bezier(.2,.7,.2,1) 0.25s both;">énergie</span> <span style="display:inline-block;animation:wordReveal 0.6s cubic-bezier(.2,.7,.2,1) 0.35s both;">maîtrisée,</span> <span style="display:inline-block;animation:wordReveal 0.6s cubic-bezier(.2,.7,.2,1) 0.45s both;">une</span> <span style="display:inline-block;animation:wordReveal 0.6s cubic-bezier(.2,.7,.2,1) 0.55s both;">exécution</span> <span style="display:inline-block;animation:wordReveal 0.6s cubic-bezier(.2,.7,.2,1) 0.65s both;">parfaite.</span>
+            </h1>
+            <p style="font-size:18px;line-height:1.6;color:oklch(0.86 0.012 260);margin:20px auto 0;max-width:560px;animation:fadeUp 0.8s cubic-bezier(.2,.7,.2,1) 0.7s both;">
+              Nord Est Elec accompagne particuliers et professionnels sur tous les travaux d'installation électrique, en toute sécurité.
+            </p>
+            <div style="display:flex;gap:14px;margin-top:32px;justify-content:center;flex-wrap:wrap;animation:fadeUp 0.8s cubic-bezier(.2,.7,.2,1) 0.78s both;">
+              <div style="position:relative;">
+                <div style="position:absolute;inset:-6px;border-radius:100px;background:oklch(0.71 0.19 45 / 0.55);filter:blur(10px);animation:ctaHalo 2.6s ease-in-out infinite;pointer-events:none;"></div>
+                <button onClick="{{ goContact }}" style="position:relative;background:oklch(0.71 0.19 45);color:#fff;border:none;padding:16px 26px;border-radius:100px;font-weight:700;font-size:15px;cursor:pointer;box-shadow:0 12px 32px oklch(0.71 0.19 45 / 0.35);transition:transform 0.3s,box-shadow 0.3s;" style-hover="transform:translateY(-3px) scale(1.03);box-shadow:0 16px 40px oklch(0.71 0.19 45 / 0.5);">Demander un devis gratuit</button>
+              </div>
+              <a href="tel:0699399518" style="display:flex;align-items:center;gap:10px;color:#fff;border:1px solid oklch(1 0 0 / 0.25);padding:16px 24px;border-radius:100px;font-weight:600;font-size:15px;transition:background 0.3s,transform 0.3s;" style-hover="background:oklch(1 0 0 / 0.08);transform:translateY(-2px);">06 99 39 95 18</a>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isHeroC }}" hint-placeholder-val="{{ false }}">
+        <div style="position:relative;background:{{ navyBg }};padding:96px 28px 60px;overflow:hidden;">
+          <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none;">
+            <svg width="100%" height="100%" viewBox="0 0 1280 1100" style="position:absolute;inset:0;" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="boltGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="oklch(0.71 0.19 45)" stop-opacity="0.35"></stop>
+                  <stop offset="55%" stop-color="oklch(0.85 0.15 80)" stop-opacity="0.8"></stop>
+                  <stop offset="100%" stop-color="oklch(0.97 0.03 90)" stop-opacity="1"></stop>
+                </linearGradient>
+              </defs>
+              <path d="M430 -20 L310 300 L430 300 L250 620 L370 620 L190 1050" pathLength="100" stroke="url(#boltGrad)" stroke-width="4" fill="none" stroke-linecap="round" stroke-dasharray="35 65" style="animation:heroBolt 8s linear infinite;animation-delay:-6.3s;filter:drop-shadow(0 0 14px oklch(0.85 0.15 80)) blur(0.4px);"></path>
+            </svg>
+          </div>
+          <div style="max-width:1100px;margin:0 auto;background:oklch(0.18 0.006 260 / 0.7);backdrop-filter:blur(16px);border:1px solid oklch(1 0 0 / 0.1);border-radius:28px;padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;box-shadow:0 30px 80px rgba(0,0,0,0.4);" class="neel-hero-split">
+            <div>
+              <div style="display:inline-flex;align-items:center;gap:8px;color:oklch(0.75 0.1 222);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;animation:fadeUp 0.7s cubic-bezier(.2,.7,.2,1) both;">
+                <span style="width:6px;height:6px;border-radius:50%;background:oklch(0.71 0.19 45);animation:pulseGlow 2s ease-in-out infinite;"></span> Depuis 2015 · Bischwiller
+              </div>
+              <h1 class="neel-h1" style="font-family:'Space Grotesk',sans-serif;font-size:46px;line-height:1.08;font-weight:700;color:#fff;margin:18px 0 0;animation:fadeUp 0.8s cubic-bezier(.2,.7,.2,1) 0.08s both;">
+                Votre électricien de confiance dans le Bas-Rhin.
+              </h1>
+              <p style="font-size:16px;line-height:1.6;color:oklch(0.72 0.01 260);margin:18px 0 0;animation:fadeUp 0.8s cubic-bezier(.2,.7,.2,1) 0.16s both;">
+                Un devis clair, une intervention soignée, un résultat qui dure.
+              </p>
+              <div style="display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;animation:fadeUp 0.8s cubic-bezier(.2,.7,.2,1) 0.24s both;">
+                <button onClick="{{ goContact }}" style="background:oklch(0.71 0.19 45);color:#fff;border:none;padding:15px 24px;border-radius:100px;font-weight:700;font-size:14px;cursor:pointer;transition:transform 0.3s,box-shadow 0.3s;" style-hover="transform:translateY(-3px) scale(1.03);box-shadow:0 12px 28px oklch(0.71 0.19 45 / 0.4);">Demander un devis gratuit</button>
+                <a href="tel:0699399518" style="color:#fff;border:1px solid oklch(1 0 0 / 0.25);padding:15px 22px;border-radius:100px;font-weight:600;font-size:14px;transition:background 0.3s,transform 0.3s;" style-hover="background:oklch(1 0 0 / 0.08);transform:translateY(-2px);">Appeler</a>
+              </div>
+            </div>
+            <div style="border-radius:20px;overflow:hidden;min-height:320px;">
+              <image-slot id="hero-c-photo" shape="rounded" radius="20" placeholder="PHOTO — tableau électrique moderne" style="width:100%;height:100%;"></image-slot>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <div ref="{{ setStatsRef }}" style="background:{{ navyBg }};border-top:1px solid oklch(1 0 0 / 0.06);padding:32px 28px 56px;">
+        <div style="max-width:900px;margin:0 auto;display:flex;justify-content:center;gap:28px;flex-wrap:wrap;padding-bottom:26px;margin-bottom:26px;border-bottom:1px solid oklch(1 0 0 / 0.08);">
+          <div style="display:flex;align-items:center;gap:8px;color:oklch(0.72 0.01 260);font-size:13px;font-weight:600;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.71 0.19 45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V6z"></path></svg>
+            Assurance décennale
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;color:oklch(0.72 0.01 260);font-size:13px;font-weight:600;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.68 0.12 222)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
+            Devis gratuit sous 48h
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;color:oklch(0.72 0.01 260);font-size:13px;font-weight:600;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="oklch(0.71 0.19 45)"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"></polygon></svg>
+            Avis clients vérifiés
+          </div>
+        </div>
+        <div class="neel-stats-row" style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center;">
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;color:#fff;animation:statGlow 3.2s ease-in-out infinite;">Depuis 2015</div>
+            <div style="font-size:13px;color:oklch(0.6 0.01 260);margin-top:4px;">ans d'expérience</div>
+          </div>
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;color:#fff;animation:statGlow 3.2s ease-in-out infinite;">{{ counters.zone }}%</div>
+            <div style="font-size:13px;color:oklch(0.6 0.01 260);margin-top:4px;">Tout le Bas-Rhin</div>
+          </div>
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;color:#fff;animation:statGlow 3.2s ease-in-out 0.5s infinite;">&lt;{{ counters.delai }}h</div>
+            <div style="font-size:13px;color:oklch(0.6 0.01 260);margin-top:4px;">délai d'intervention</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="max-width:1280px;margin:0 auto;padding:100px 28px;">
+        <div style="text-align:center;max-width:640px;margin:0 auto 56px;" data-reveal="1">
+          <div style="display:inline-flex;align-items:center;gap:8px;color:oklch(0.6 0.12 222);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">Pourquoi nous choisir</div>
+          <h2 class="neel-h2" style="font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;margin:12px 0 0;">Une exigence à chaque étape.</h2>
+        </div>
+        <div class="neel-grid-3" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+          <div class="neel-card" data-reveal="1" style="background:#fff;border:1px solid {{ cardBorder }};border-radius:18px;padding:28px 24px;" style-hover="transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.08);border-color:oklch(0.71 0.19 45 / 0.4);">
+            <div class="neel-icon-breathe" style="width:44px;height:44px;border-radius:12px;background:oklch(0.71 0.19 45 / 0.12);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.64 0.19 45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V6z"></path></svg>
+            </div>
+            <div style="font-weight:700;font-size:16px;">Certifié &amp; assuré</div>
+            <div style="font-size:14px;color:{{ mutedText }};margin-top:8px;line-height:1.5;">Travaux couverts par notre assurance décennale, dans le respect strict des normes en vigueur.</div>
+          </div>
+          <div class="neel-card" data-reveal="1" style="background:#fff;border:1px solid {{ cardBorder }};border-radius:18px;padding:28px 24px;" style-hover="transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.08);border-color:oklch(0.68 0.12 222 / 0.4);">
+            <div class="neel-icon-breathe" style="width:44px;height:44px;border-radius:12px;background:oklch(0.68 0.12 222 / 0.14);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.12 222)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
+            </div>
+            <div style="font-weight:700;font-size:16px;">Intervention rapide</div>
+            <div style="font-size:14px;color:{{ mutedText }};margin-top:8px;line-height:1.5;">Un dépannage sous 48h, et une vraie réactivité pour les urgences électriques.</div>
+          </div>
+          <div class="neel-card" data-reveal="1" style="background:#fff;border:1px solid {{ cardBorder }};border-radius:18px;padding:28px 24px;" style-hover="transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.08);border-color:oklch(0.71 0.19 45 / 0.4);">
+            <div class="neel-icon-breathe" style="width:44px;height:44px;border-radius:12px;background:oklch(0.71 0.19 45 / 0.12);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.64 0.19 45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"></path><path d="M4 9h11a5 5 0 0 1 5 5v1"></path></svg>
+            </div>
+            <div style="font-weight:700;font-size:16px;">Devis transparent</div>
+            <div style="font-size:14px;color:{{ mutedText }};margin-top:8px;line-height:1.5;">Un devis détaillé, gratuit et sans engagement, avant chaque intervention.</div>
+          </div>
+          <div class="neel-card" data-reveal="1" style="background:#fff;border:1px solid {{ cardBorder }};border-radius:18px;padding:28px 24px;" style-hover="transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.08);border-color:oklch(0.68 0.12 222 / 0.4);">
+            <div class="neel-icon-breathe" style="width:44px;height:44px;border-radius:12px;background:oklch(0.68 0.12 222 / 0.14);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.12 222)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"></rect><path d="M8 20h8M12 18v2"></path></svg>
+            </div>
+            <div style="font-weight:700;font-size:16px;">Travail garanti</div>
+            <div style="font-size:14px;color:{{ mutedText }};margin-top:8px;line-height:1.5;">Un accompagnement qui ne s'arrête pas à la facture : nous restons disponibles.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:oklch(0.96 0.004 90);padding:100px 28px;">
+        <div style="max-width:1280px;margin:0 auto;">
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:48px;flex-wrap:wrap;" data-reveal="1">
+            <div>
+              <div style="display:inline-flex;align-items:center;gap:8px;color:oklch(0.6 0.12 222);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">Nos services</div>
+              <h2 class="neel-h2" style="font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;margin:12px 0 0;max-width:520px;">Une expertise complète, pour particuliers et professionnels.</h2>
+            </div>
+            <button onClick="{{ goServices }}" style="background:{{ navyBg }};color:#fff;border:none;padding:14px 22px;border-radius:100px;font-weight:600;font-size:14px;cursor:pointer;white-space:nowrap;transition:transform 0.3s;" style-hover="transform:translateY(-2px);">Voir tous les services →</button>
+          </div>
+          <div class="neel-grid-3" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;">
+            <sc-for list="{{ homeServices }}" as="s" hint-placeholder-count="8">
+              <div class="neel-card" data-reveal="1" style="background:#fff;border:1px solid {{ cardBorder }};border-radius:16px;padding:24px 22px;cursor:pointer;" style-hover="transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.08);border-color:oklch(0.71 0.19 45 / 0.4);" onClick="{{ goServices }}">
+                <div style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:oklch(0.85 0.03 90);">{{ s.n }}</div>
+                <div style="font-weight:700;font-size:15px;margin-top:10px;">{{ s.title }}</div>
+                <div style="font-size:13px;color:{{ mutedText }};margin-top:6px;line-height:1.5;">{{ s.desc }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <div style="max-width:1280px;margin:0 auto;padding:100px 28px;">
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:48px;flex-wrap:wrap;" data-reveal="1">
+          <div>
+            <div style="display:inline-flex;align-items:center;gap:8px;color:oklch(0.6 0.12 222);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">Réalisations</div>
+            <h2 class="neel-h2" style="font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;margin:12px 0 0;">Nos chantiers récents dans le Bas-Rhin.</h2>
+          </div>
+          <button onClick="{{ goProjects }}" style="background:none;color:oklch(0.2 0.01 260);border:1px solid oklch(0.85 0.005 90);padding:14px 22px;border-radius:100px;font-weight:600;font-size:14px;cursor:pointer;white-space:nowrap;transition:transform 0.3s,border-color 0.3s;" style-hover="transform:translateY(-2px);border-color:oklch(0.71 0.19 45);">Voir la galerie →</button>
+        </div>
+        <div class="neel-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+          <sc-for list="{{ homeGallery }}" as="g" hint-placeholder-count="3">
+            <div class="neel-card" data-reveal="1" style="border-radius:18px;overflow:hidden;position:relative;height:280px;" style-hover="transform:scale(1.02);box-shadow:0 20px 45px rgba(0,0,0,0.18);">
+              <image-slot id="{{ g.slotId }}" shape="rect" placeholder="{{ g.placeholder }}" style="width:100%;height:100%;"></image-slot>
+              <button onClick="{{ g.onOpen }}" aria-label="Agrandir la photo" style="position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;background:oklch(0.14 0.004 260 / 0.7);backdrop-filter:blur(6px);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg>
+              </button>
+              <div style="position:absolute;left:0;right:0;bottom:0;padding:18px;background:linear-gradient(0deg, rgba(0,0,0,0.75), transparent);pointer-events:none;">
+                <div style="color:#fff;font-weight:700;font-size:14px;">{{ g.title }}</div>
+                <div style="color:oklch(0.85 0.01 260);font-size:12px;margin-top:2px;">{{ g.tag }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="max-width:1000px;margin:0 auto 22px;padding:0 28px;text-align:center;" data-reveal="1">
+        <div style="font-size:11px;color:{{ mutedText }};font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">Marques avec lesquelles nous travaillons</div>
+      </div>
+      <div style="max-width:960px;margin:0 auto;padding:0 28px 90px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);">
+        <div style="display:flex;width:max-content;animation:marqueeScroll 12s linear infinite;">
+          <div style="display:flex;gap:18px;padding-right:18px;">
+            <image-slot id="partner-1" shape="rect" placeholder="LOGO — partenaire 1" style="width:190px;height:84px;filter:grayscale(1);opacity:0.7;"></image-slot>
+            <image-slot id="partner-2" shape="rect" placeholder="LOGO — partenaire 2" style="width:190px;height:84px;filter:grayscale(1);opacity:0.7;"></image-slot>
+            <image-slot id="partner-3" shape="rect" placeholder="LOGO — partenaire 3" style="width:190px;height:84px;filter:grayscale(1);opacity:0.7;"></image-slot>
+            <image-slot id="partner-4" shape="rect" placeholder="LOGO — partenaire 4" style="width:190px;height:84px;filter:grayscale(1);opacity:0.7;"></image-slot>
+          </div>
+          <div style="display:flex;gap:18px;padding-right:18px;" aria-hidden="true">
+            <image-slot id="partner-1-dup" shape="rect" placeholder="LOGO — partenaire 1" style="width:190px;height:84px;filter:grayscale(1);opacity:0.7;"></image-slot>
+            <image-slot id="partner-2-dup" shape="rect" placeholder="LOGO — partenaire 2" style="width:190px;height:84px;filter:grayscale(1);opacity:0.7;"></image-slot>
+            <image-slot id="partner-3-dup" shape="rect" placeholder="LOGO — partenaire 3" style="width:190px;height:84px;filter:grayscale(1);opacity:0.7;"></image-slot>
+            <image-slot id="partner-4-dup" shape="rect" placeholder="LOGO — partenaire 4" style="width:190px;height:84px;filter:grayscale(1);opacity:0.7;"></image-slot>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:{{ navyBg }};padding:90px 28px;position:relative;overflow:hidden;">
+        <div style="max-width:800px;margin:0 auto;text-align:center;position:relative;" data-reveal="1">
+          <h2 class="neel-h2" style="font-family:'Space Grotesk',sans-serif;font-size:38px;font-weight:700;color:#fff;margin:0;">Un projet électrique en tête ?</h2>
+          <p style="color:oklch(0.68 0.01 260);font-size:16px;margin:16px 0 0;">Contactez Nord Est Elec pour un devis gratuit, sans engagement.</p>
+          <div style="display:flex;gap:14px;justify-content:center;margin-top:30px;flex-wrap:wrap;">
+            <button onClick="{{ goContact }}" style="background:oklch(0.71 0.19 45);color:#fff;border:none;padding:16px 28px;border-radius:100px;font-weight:700;font-size:15px;cursor:pointer;box-shadow:0 12px 32px oklch(0.71 0.19 45 / 0.35);transition:transform 0.3s,box-shadow 0.3s;" style-hover="transform:translateY(-3px) scale(1.03);box-shadow:0 16px 40px oklch(0.71 0.19 45 / 0.5);">Demander un devis gratuit</button>
+            <a href="tel:0699399518" style="display:flex;align-items:center;gap:10px;color:#fff;border:1px solid oklch(1 0 0 / 0.2);padding:16px 24px;border-radius:100px;font-weight:600;font-size:15px;transition:background 0.3s,transform 0.3s;" style-hover="background:oklch(1 0 0 / 0.08);transform:translateY(-2px);">Appeler maintenant</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+    <div>
+      <div style="position:relative;background:{{ navyBg }};padding-top:96px;overflow:hidden;">
+        <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none;">
+          <div style="position:absolute;left:6%;top:35%;width:60px;height:60px;border-radius:50%;border:1.5px solid oklch(0.71 0.19 45 / 0.5);animation:ringPulse 3.6s ease-out infinite;"></div>
+          <div style="position:absolute;left:6%;top:35%;width:60px;height:60px;border-radius:50%;border:1.5px solid oklch(0.71 0.19 45 / 0.5);animation:ringPulse 3.6s ease-out infinite;animation-delay:1.2s;"></div>
+          <div style="position:absolute;left:6%;top:35%;width:60px;height:60px;border-radius:50%;border:1.5px solid oklch(0.71 0.19 45 / 0.5);animation:ringPulse 3.6s ease-out infinite;animation-delay:2.4s;"></div>
+        </div>
+        <div class="neel-hero-split" style="position:relative;max-width:1280px;margin:0 auto;padding:64px 28px 90px;display:grid;grid-template-columns:1.05fr 0.95fr;gap:40px;align-items:center;">
+          <div>
+            <div style="display:inline-flex;align-items:center;gap:8px;background:oklch(1 0 0 / 0.06);border:1px solid oklch(1 0 0 / 0.12);color:oklch(0.75 0.1 222);padding:7px 14px;border-radius:100px;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;animation:fadeUp 0.7s cubic-bezier(.2,.7,.2,1) both;">
+              <span style="width:6px;height:6px;border-radius:50%;background:oklch(0.71 0.19 45);box-shadow:0 0 10px oklch(0.71 0.19 45);animation:pulseGlow 2s ease-in-out infinite;"></span>
+              À propos · Depuis 2015
+            </div>
+            <h1 class="neel-h1" style="font-family:'Space Grotesk',sans-serif;font-size:44px;line-height:1.08;font-weight:700;color:#fff;margin:18px 0 0;">
+              <span style="display:inline-block;animation:wordReveal 0.6s cubic-bezier(.2,.7,.2,1) 0.12s both;">Une</span> <span style="display:inline-block;animation:wordReveal 0.6s cubic-bezier(.2,.7,.2,1) 0.2s both;">entreprise</span> <span style="display:inline-block;animation:wordReveal 0.6s cubic-bezier(.2,.7,.2,1) 0.28s both;">du</span> <span style="display:inline-block;animation:wordReveal 0.6s cubic-bezier(.2,.7,.2,1) 0.36s both;">Bas-Rhin,</span> <span style="display:inline-block;animation:wordReveal 0.6s cubic-bezier(.2,.7,.2,1) 0.44s both;">à</span> <span style="display:inline-block;animation:wordReveal 0.6s cubic-bezier(.2,.7,.2,1) 0.52s both;">taille</span> <span style="display:inline-block;animation:wordReveal 0.6s cubic-bezier(.2,.7,.2,1) 0.6s both;">humaine.</span>
+            </h1>
+            <p style="color:oklch(0.72 0.01 260);font-size:17px;max-width:480px;margin:18px 0 0;line-height:1.6;animation:fadeUp 0.8s cubic-bezier(.2,.7,.2,1) 0.65s both;">Créée en micro-entreprise en 2015, Nord Est Elec est devenue une entreprise à part entière en 2019. Elle réalise des travaux d'électricité générale pour particuliers et professionnels, dans tout le Bas-Rhin.</p>
+          </div>
+          <div style="position:relative;min-height:360px;border-radius:20px;overflow:hidden;animation:heroImgSlideIn 1.1s cubic-bezier(.16,.8,.24,1) 0.1s both;">
+            <image-slot id="about-hero" shape="rect" placeholder="PHOTO — fondateur Nord Est Elec" style="width:100%;height:100%;"></image-slot>
+          </div>
+        </div>
+      </div>
+
+      <div style="max-width:1280px;margin:0 auto;padding:90px 28px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;" class="neel-hero-split">
+        <div style="border-radius:20px;overflow:hidden;min-height:400px;" data-reveal="1">
+          <image-slot id="about-team" shape="rect" placeholder="PHOTO — équipe Nord Est Elec sur chantier" style="width:100%;height:100%;"></image-slot>
+        </div>
+        <div data-reveal="1">
+          <h2 class="neel-h2" style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;">Notre histoire</h2>
+          <p style="font-size:15px;line-height:1.7;color:oklch(0.4 0.012 260);margin-top:16px;">Depuis sa création à Bischwiller, Nord Est Elec s'est construite sur une conviction simple : une installation électrique doit être sûre, durable et bien pensée. D'année en année, l'entreprise a développé son savoir-faire sur l'ensemble des travaux électriques, du courant faible au courant fort.</p>
+          <p style="font-size:15px;line-height:1.7;color:oklch(0.4 0.012 260);margin-top:14px;">Aujourd'hui, nous accompagnons aussi bien les particuliers que les professionnels du Bas-Rhin, avec la même exigence sur chaque chantier, petit ou grand.</p>
+          <div style="display:flex;gap:28px;margin-top:28px;flex-wrap:wrap;">
+            <div><div style="font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:oklch(0.64 0.19 45);">2015</div><div style="font-size:13px;color:{{ mutedText }};">Création (micro-entreprise)</div></div>
+            <div><div style="font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:oklch(0.64 0.19 45);">2019</div><div style="font-size:13px;color:{{ mutedText }};">Passage en entreprise</div></div>
+            <div><div style="font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:oklch(0.55 0.12 222);">Bas-Rhin</div><div style="font-size:13px;color:{{ mutedText }};">Zone d'intervention</div></div>
+          </div>
+          <div style="margin-top:36px;position:relative;padding-left:2px;">
+            <div style="position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:oklch(0.88 0.005 90);overflow:hidden;">
+              <div style="position:absolute;left:-3px;width:8px;height:8px;border-radius:50%;background:oklch(0.71 0.19 45);box-shadow:0 0 8px oklch(0.71 0.19 45);animation:timelineDot 4.5s linear infinite;"></div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:22px;">
+              <div style="display:flex;gap:16px;align-items:flex-start;">
+                <div style="width:12px;height:12px;border-radius:50%;background:oklch(0.71 0.19 45);margin-top:3px;flex-shrink:0;box-shadow:0 0 0 3px oklch(0.71 0.19 45 / 0.2);"></div>
+                <div><div style="font-weight:700;font-size:14px;">2015 — Création en micro-entreprise</div><div style="font-size:13px;color:{{ mutedText }};margin-top:2px;">L'activité démarre à Bischwiller.</div></div>
+              </div>
+              <div style="display:flex;gap:16px;align-items:flex-start;">
+                <div style="width:12px;height:12px;border-radius:50%;background:oklch(0.71 0.19 45);margin-top:3px;flex-shrink:0;box-shadow:0 0 0 3px oklch(0.71 0.19 45 / 0.2);"></div>
+                <div><div style="font-weight:700;font-size:14px;">2019 — Devient Nord Est Elec</div><div style="font-size:13px;color:{{ mutedText }};margin-top:2px;">L'activité évolue en entreprise à part entière.</div></div>
+              </div>
+              <div style="display:flex;gap:16px;align-items:flex-start;">
+                <div style="width:12px;height:12px;border-radius:50%;background:oklch(0.71 0.19 45);margin-top:3px;flex-shrink:0;box-shadow:0 0 0 3px oklch(0.71 0.19 45 / 0.2);"></div>
+                <div><div style="font-weight:700;font-size:14px;">Extension à tout le Bas-Rhin</div><div style="font-size:13px;color:{{ mutedText }};margin-top:2px;">Élargissement de la zone d'intervention aux communes voisines.</div></div>
+              </div>
+              <div style="display:flex;gap:16px;align-items:flex-start;">
+                <div style="width:12px;height:12px;border-radius:50%;background:oklch(0.71 0.19 45);margin-top:3px;flex-shrink:0;box-shadow:0 0 0 3px oklch(0.71 0.19 45 / 0.2);"></div>
+                <div><div style="font-weight:700;font-size:14px;">Aujourd'hui</div><div style="font-size:13px;color:{{ mutedText }};margin-top:2px;">Particuliers et professionnels, courant fort et courant faible.</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:oklch(0.96 0.004 90);padding:90px 28px;">
+        <div style="max-width:1280px;margin:0 auto;">
+          <div style="text-align:center;max-width:640px;margin:0 auto 56px;" data-reveal="1">
+            <div style="display:inline-flex;align-items:center;gap:8px;color:oklch(0.6 0.12 222);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">Notre méthode</div>
+            <h2 class="neel-h2" style="font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;margin:12px 0 0;">De la prise de contact à la mise en service.</h2>
+          </div>
+          <div style="max-width:720px;margin:0 auto;position:relative;">
+            <div style="position:absolute;left:19px;top:8px;bottom:8px;width:2px;background:oklch(0.88 0.005 90);overflow:hidden;">
+              <div style="position:absolute;left:-3px;width:8px;height:8px;border-radius:50%;background:oklch(0.71 0.19 45);box-shadow:0 0 8px oklch(0.71 0.19 45);animation:timelineDot 5s linear infinite;"></div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:32px;">
+              <sc-for list="{{ methodSteps }}" as="m" hint-placeholder-count="6">
+                <div data-reveal="1" style="display:flex;gap:22px;align-items:flex-start;position:relative;">
+                  <div style="width:40px;height:40px;border-radius:50%;background:{{ navyBg }};color:oklch(0.71 0.19 45);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;">{{ m.n }}</div>
+                  <div style="background:#fff;border:1px solid {{ cardBorder }};border-radius:14px;padding:18px 22px;flex:1;">
+                    <div style="font-weight:700;font-size:15px;">{{ m.title }}</div>
+                    <div style="font-size:13px;color:{{ mutedText }};margin-top:6px;line-height:1.5;">{{ m.desc }}</div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="max-width:1280px;margin:0 auto;padding:0 28px 90px;">
+        <div style="text-align:center;max-width:600px;margin:0 auto 40px;" data-reveal="1">
+          <div style="display:inline-flex;align-items:center;gap:8px;color:oklch(0.6 0.12 222);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">Assurances &amp; garanties</div>
+          <h2 class="neel-h2" style="font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;margin:12px 0 0;">Des interventions couvertes et encadrées.</h2>
+        </div>
+        <div class="neel-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+          <div class="neel-card" data-reveal="1" style="background:#fff;border:1px solid {{ cardBorder }};border-radius:16px;padding:26px 22px;" style-hover="transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.08);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.64 0.19 45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation:iconBreathe 3.4s ease-in-out infinite;transform-origin:center;"><path d="M12 2 4 6v6c0 5 3.4 8.4 8 10 4.6-1.6 8-5 8-10V6z"></path></svg>
+            <div style="font-weight:700;font-size:15px;margin-top:14px;">Assurance décennale</div>
+            <div style="font-size:13px;color:{{ mutedText }};margin-top:6px;line-height:1.5;">Tous nos travaux d'installation sont couverts par une garantie décennale.</div>
+          </div>
+          <div class="neel-card" data-reveal="1" style="background:#fff;border:1px solid {{ cardBorder }};border-radius:16px;padding:26px 22px;" style-hover="transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.08);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.12 222)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation:iconBreathe 3.4s ease-in-out 0.3s infinite;transform-origin:center;"><circle cx="12" cy="12" r="9"></circle><path d="M9 12l2 2 4-4"></path></svg>
+            <div style="font-weight:700;font-size:15px;margin-top:14px;">Responsabilité civile pro</div>
+            <div style="font-size:13px;color:{{ mutedText }};margin-top:6px;line-height:1.5;">Une couverture RC Pro active sur chaque chantier, particulier ou professionnel.</div>
+          </div>
+          <div class="neel-card" data-reveal="1" style="background:#fff;border:1px solid {{ cardBorder }};border-radius:16px;padding:26px 22px;" style-hover="transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.08);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.64 0.19 45)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation:iconBreathe 3.4s ease-in-out 0.6s infinite;transform-origin:center;"><rect x="4" y="4" width="16" height="16" rx="3"></rect><path d="M9 12h6M12 9v6"></path></svg>
+            <div style="font-weight:700;font-size:15px;margin-top:14px;">Normes NF C 15-100</div>
+            <div style="font-size:13px;color:{{ mutedText }};margin-top:6px;line-height:1.5;">Chaque installation respecte scrupuleusement la norme électrique en vigueur.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="max-width:1280px;margin:0 auto;padding:0 28px 90px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;" class="neel-hero-split">
+          <div data-reveal="1">
+            <div style="display:inline-flex;align-items:center;gap:8px;color:oklch(0.6 0.12 222);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">Zone d'intervention</div>
+            <h2 class="neel-h2" style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;margin:12px 0 0;">Bischwiller et tout le Bas-Rhin.</h2>
+            <p style="font-size:15px;line-height:1.6;color:{{ mutedText }};margin-top:14px;">Basés à Bischwiller, nous intervenons dans un rayon large autour, pour tout type de travaux électriques.</p>
+            <div style="display:flex;align-items:center;gap:20px;margin-top:26px;">
+              <div style="position:relative;width:90px;height:90px;flex-shrink:0;">
+                <div style="position:absolute;inset:0;border-radius:50%;border:1px solid {{ cardBorder }};"></div>
+                <div style="position:absolute;inset:14px;border-radius:50%;border:1px solid oklch(0.85 0.005 90);"></div>
+                <div style="position:absolute;inset:28px;border-radius:50%;background:oklch(0.71 0.19 45 / 0.15);border:1px solid oklch(0.71 0.19 45 / 0.4);animation:pulseGlow 2.4s ease-in-out infinite;"></div>
+                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                  <div style="width:10px;height:10px;border-radius:50%;background:oklch(0.71 0.19 45);box-shadow:0 0 10px oklch(0.71 0.19 45);"></div>
+                </div>
+              </div>
+              <div>
+                <div style="font-weight:700;font-size:14px;">Bischwiller</div>
+                <div style="font-size:12px;color:oklch(0.55 0.012 260);">Point de départ de nos interventions</div>
+              </div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;">
+              <sc-for list="{{ zones }}" as="z" hint-placeholder-count="10">
+                <span style="background:#fff;border:1px solid {{ cardBorder }};padding:8px 16px;border-radius:100px;font-size:13px;font-weight:600;color:oklch(0.3 0.01 260);">{{ z }}</span>
+              </sc-for>
+            </div>
+          </div>
+          <div style="position:relative;border-radius:20px;overflow:hidden;height:340px;border:1px solid {{ cardBorder }};">
+            <div style="position:absolute;top:12px;left:12px;background:#fff;border:1px solid {{ cardBorder }};border-radius:100px;padding:8px 14px 8px 10px;display:flex;align-items:center;gap:6px;box-shadow:0 8px 20px rgba(0,0,0,0.12);z-index:2;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="oklch(0.71 0.19 45)" stroke="oklch(0.71 0.19 45)"><path d="M12 2C8 2 5 5 5 9c0 6 7 13 7 13s7-7 7-13c0-4-3-7-7-7z"></path></svg>
+              <span style="font-size:12px;font-weight:700;color:oklch(0.2 0.01 260);">Bischwiller, Bas-Rhin</span>
+            </div>
+            <iframe title="Zone d'intervention Nord Est Elec" src="https://www.google.com/maps?q=Bischwiller,France&output=embed" style="width:100%;height:100%;border:0;"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isServices }}" hint-placeholder-val="{{ false }}">
+    <div>
+      <div style="position:relative;background:{{ navyBg }};padding-top:96px;overflow:hidden;">
+        <div class="neel-hero-split" style="position:relative;max-width:1280px;margin:0 auto;padding:64px 28px 100px;display:grid;grid-template-columns:1.05fr 0.95fr;gap:40px;align-items:center;">
+          <div>
+            <div style="display:inline-flex;align-items:center;gap:8px;background:oklch(1 0 0 / 0.06);border:1px solid oklch(1 0 0 / 0.12);color:oklch(0.75 0.1 222);padding:7px 14px;border-radius:100px;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;animation:fadeUp 0.7s cubic-bezier(.2,.7,.2,1) both;">
+              <span style="width:6px;height:6px;border-radius:50%;background:oklch(0.71 0.19 45);box-shadow:0 0 10px oklch(0.71 0.19 45);animation:pulseGlow 2s ease-in-out infinite;"></span>
+              Nos services
+            </div>
+            <h1 class="neel-h1" style="font-family:'Space Grotesk',sans-serif;font-size:42px;line-height:1.08;font-weight:700;color:#fff;margin:18px 0 0;animation:fadeUp 0.8s cubic-bezier(.2,.7,.2,1) 0.08s both;">Toute l'électricité générale, en un seul interlocuteur.</h1>
+            <p style="color:oklch(0.72 0.01 260);font-size:17px;max-width:480px;margin:18px 0 0;line-height:1.6;animation:fadeUp 0.8s cubic-bezier(.2,.7,.2,1) 0.16s both;">Pour les particuliers comme pour les professionnels, courant fort et courant faible.</p>
+            <div style="display:flex;gap:10px;margin-top:24px;flex-wrap:wrap;animation:fadeUp 0.8s cubic-bezier(.2,.7,.2,1) 0.24s both;">
+              <span style="background:oklch(1 0 0 / 0.08);color:#fff;padding:8px 16px;border-radius:100px;font-size:13px;font-weight:600;">Particuliers</span>
+              <span style="background:oklch(1 0 0 / 0.08);color:#fff;padding:8px 16px;border-radius:100px;font-size:13px;font-weight:600;">Professionnels</span>
+            </div>
+          </div>
+          <div style="position:relative;min-height:360px;animation:heroImgSlideIn 1.1s cubic-bezier(.16,.8,.24,1) 0.1s both;">
+            <div style="border-radius:20px;overflow:hidden;height:100%;">
+              <image-slot id="services-hero" shape="rect" placeholder="PHOTO — tableau électrique moderne" style="width:100%;height:100%;"></image-slot>
+            </div>
+            <div style="position:absolute;right:16px;bottom:16px;background:oklch(0.16 0.006 260 / 0.9);backdrop-filter:blur(10px);border:1px solid oklch(1 0 0 / 0.1);border-radius:16px;padding:16px 20px;box-shadow:0 20px 50px rgba(0,0,0,0.4);animation:floatY 5s ease-in-out infinite;">
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:oklch(0.71 0.19 45);">10</div>
+              <div style="font-size:12px;color:oklch(0.65 0.01 260);margin-top:2px;">domaines d'expertise</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="max-width:1280px;margin:0 auto;padding:80px 28px;">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:40px;">
+          <sc-for list="{{ serviceCategoryChips }}" as="c" hint-placeholder-count="6">
+            <button onClick="{{ c.onClick }}" style="background:{{ c.bg }};color:{{ c.color }};border:1px solid {{ c.border }};padding:10px 20px;border-radius:100px;font-size:13px;font-weight:600;cursor:pointer;">{{ c.label }}</button>
+          </sc-for>
+        </div>
+        <div class="neel-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
+          <sc-for list="{{ filteredServices }}" as="s" hint-placeholder-count="10">
+            <div class="neel-card neel-tilt" data-reveal="1" style="background:#fff;border:1px solid {{ cardBorder }};border-radius:18px;padding:30px 26px;" style-hover="transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.08);border-color:oklch(0.71 0.19 45 / 0.4);">
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;color:oklch(0.85 0.03 90);">{{ s.n }}</div>
+              <div style="font-weight:700;font-size:17px;margin-top:12px;">{{ s.title }}</div>
+              <div style="font-size:14px;color:{{ mutedText }};margin-top:8px;line-height:1.55;">{{ s.desc }}</div>
+              <div class="neel-sep" style="margin-top:16px;height:2px;width:36px;background:oklch(0.71 0.19 45);border-radius:2px;"></div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="background:oklch(0.96 0.004 90);padding:80px 28px;">
+        <div style="max-width:900px;margin:0 auto;text-align:center;" data-reveal="1">
+          <h2 class="neel-h2" style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;">Un besoin spécifique ?</h2>
+          <p style="color:{{ mutedText }};font-size:15px;margin-top:12px;">Décrivez-nous votre projet, nous revenons vers vous avec un devis gratuit.</p>
+          <button onClick="{{ goContact }}" style="margin-top:22px;background:oklch(0.71 0.19 45);color:#fff;border:none;padding:16px 28px;border-radius:100px;font-weight:700;font-size:15px;cursor:pointer;box-shadow:0 12px 32px oklch(0.71 0.19 45 / 0.35);transition:transform 0.3s,box-shadow 0.3s;" style-hover="transform:translateY(-3px) scale(1.03);box-shadow:0 16px 40px oklch(0.71 0.19 45 / 0.5);">Demander un devis gratuit</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isProjects }}" hint-placeholder-val="{{ false }}">
+    <div>
+      <div style="position:relative;background:{{ navyBg }};padding-top:96px;overflow:hidden;">
+        <div style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(5,1fr);height:340px;opacity:0.4;">
+          <image-slot id="proj-hero-1" shape="rect" placeholder="Photo" style="width:100%;height:100%;"></image-slot>
+          <image-slot id="proj-hero-2" shape="rect" placeholder="Photo" style="width:100%;height:100%;"></image-slot>
+          <image-slot id="proj-hero-3" shape="rect" placeholder="Photo" style="width:100%;height:100%;"></image-slot>
+          <image-slot id="proj-hero-4" shape="rect" placeholder="Photo" style="width:100%;height:100%;"></image-slot>
+          <image-slot id="proj-hero-5" shape="rect" placeholder="Photo" style="width:100%;height:100%;"></image-slot>
+        </div>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg, oklch(0.14 0.004 260 / 0.35) 0%, oklch(0.14 0.004 260 / 0.94) 80%);"></div>
+        <div style="position:relative;max-width:800px;margin:0 auto;padding:120px 28px 90px;text-align:center;">
+          <div style="display:inline-flex;align-items:center;gap:8px;background:oklch(1 0 0 / 0.08);border:1px solid oklch(1 0 0 / 0.14);color:oklch(0.75 0.1 222);padding:7px 14px;border-radius:100px;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;animation:fadeUp 0.7s cubic-bezier(.2,.7,.2,1) both;">
+            <span style="width:6px;height:6px;border-radius:50%;background:oklch(0.71 0.19 45);box-shadow:0 0 10px oklch(0.71 0.19 45);animation:pulseGlow 2s ease-in-out infinite;"></span>
+            Réalisations
+          </div>
+          <h1 class="neel-h1" style="font-family:'Space Grotesk',sans-serif;font-size:44px;font-weight:700;color:#fff;margin:18px 0 0;animation:fadeUp 0.8s cubic-bezier(.2,.7,.2,1) 0.08s both;">Nos chantiers, dans le Bas-Rhin.</h1>
+        </div>
+      </div>
+      <div style="max-width:1280px;margin:0 auto;padding:60px 28px 100px;">
+        <div style="margin-bottom:56px;" data-reveal="1">
+          <div style="text-align:center;max-width:500px;margin:0 auto 26px;">
+            <div style="display:inline-flex;align-items:center;gap:8px;color:oklch(0.6 0.12 222);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">Avant / Après</div>
+            <h2 style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;margin:10px 0 0;">Faites glisser pour comparer.</h2>
+          </div>
+          <div class="neel-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:22px;">
+            <div ref="{{ setBa1Ref }}" style="position:relative;border-radius:18px;overflow:hidden;height:300px;">
+              <div style="position:absolute;top:0;right:0;height:100%;width:{{ ba1ClipRight }}%;overflow:hidden;">
+                <image-slot id="ba1-after" shape="rect" placeholder="APRÈS — tableau rénové" style="width:100%;height:100%;"></image-slot>
+              </div>
+              <div style="position:absolute;top:0;left:0;height:100%;width:{{ ba1 }}%;overflow:hidden;">
+                <image-slot id="ba1-before" shape="rect" placeholder="AVANT — ancien tableau" style="width:100%;height:100%;"></image-slot>
+              </div>
+              <div style="position:absolute;top:0;bottom:0;left:{{ ba1 }}%;width:3px;background:#fff;box-shadow:0 0 8px rgba(0,0,0,0.4);pointer-events:none;transform:translateX(-50%);"></div>
+              <div onPointerDown="{{ startDragBA1 }}" style="position:absolute;left:{{ ba1 }}%;top:50%;width:40px;height:40px;transform:translate(-50%,-50%);background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:ew-resize;box-shadow:0 4px 12px rgba(0,0,0,0.3);animation:{{ ba1HandleAnim }};touch-action:none;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.2 0.01 260)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="pointer-events:none;"><polyline points="8 7 3 12 8 17"></polyline><polyline points="16 7 21 12 16 17"></polyline></svg>
+              </div>
+              <div style="position:absolute;top:12px;left:12px;background:rgba(0,0,0,0.6);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px;pointer-events:none;">Avant</div>
+              <div style="position:absolute;top:12px;right:12px;background:oklch(0.71 0.19 45);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px;pointer-events:none;">Après</div>
+            </div>
+            <div ref="{{ setBa2Ref }}" style="position:relative;border-radius:18px;overflow:hidden;height:300px;">
+              <div style="position:absolute;top:0;right:0;height:100%;width:{{ ba2ClipRight }}%;overflow:hidden;">
+                <image-slot id="ba2-after" shape="rect" placeholder="APRÈS — éclairage neuf" style="width:100%;height:100%;"></image-slot>
+              </div>
+              <div style="position:absolute;top:0;left:0;height:100%;width:{{ ba2 }}%;overflow:hidden;">
+                <image-slot id="ba2-before" shape="rect" placeholder="AVANT — ancien éclairage" style="width:100%;height:100%;"></image-slot>
+              </div>
+              <div style="position:absolute;top:0;bottom:0;left:{{ ba2 }}%;width:3px;background:#fff;box-shadow:0 0 8px rgba(0,0,0,0.4);pointer-events:none;transform:translateX(-50%);"></div>
+              <div onPointerDown="{{ startDragBA2 }}" style="position:absolute;left:{{ ba2 }}%;top:50%;width:40px;height:40px;transform:translate(-50%,-50%);background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:ew-resize;box-shadow:0 4px 12px rgba(0,0,0,0.3);animation:{{ ba2HandleAnim }};touch-action:none;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.2 0.01 260)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="pointer-events:none;"><polyline points="8 7 3 12 8 17"></polyline><polyline points="16 7 21 12 16 17"></polyline></svg>
+              </div>
+              <div style="position:absolute;top:12px;left:12px;background:rgba(0,0,0,0.6);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px;pointer-events:none;">Avant</div>
+              <div style="position:absolute;top:12px;right:12px;background:oklch(0.71 0.19 45);color:#fff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px;pointer-events:none;">Après</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:40px;">
+          <sc-for list="{{ categoryChips }}" as="c" hint-placeholder-count="6">
+            <button onClick="{{ c.onClick }}" style="background:{{ c.bg }};color:{{ c.color }};border:1px solid {{ c.border }};padding:10px 20px;border-radius:100px;font-size:13px;font-weight:600;cursor:pointer;">{{ c.label }}</button>
+          </sc-for>
+        </div>
+        <div class="neel-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
+          <sc-for list="{{ filteredGallery }}" as="g" hint-placeholder-count="8">
+            <div class="neel-card" data-reveal="1" style="border-radius:18px;overflow:hidden;position:relative;height:280px;border:1px solid {{ cardBorder }};" style-hover="transform:scale(1.02);box-shadow:0 20px 45px rgba(0,0,0,0.18);">
+              <image-slot id="{{ g.slotId }}" shape="rect" placeholder="{{ g.placeholder }}" style="width:100%;height:100%;"></image-slot>
+              <div style="position:absolute;top:14px;left:14px;background:oklch(0.14 0.004 260 / 0.7);backdrop-filter:blur(6px);color:#fff;font-size:11px;font-weight:600;padding:6px 12px;border-radius:100px;pointer-events:none;">{{ g.cat }}</div>
+              <button onClick="{{ g.onOpen }}" aria-label="Agrandir la photo" style="position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;background:oklch(0.14 0.004 260 / 0.7);backdrop-filter:blur(6px);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg>
+              </button>
+              <div style="position:absolute;left:0;right:0;bottom:0;padding:18px;background:linear-gradient(0deg, rgba(0,0,0,0.75), transparent);pointer-events:none;">
+                <div style="color:#fff;font-weight:700;font-size:14px;">{{ g.title }}</div>
+                <div style="color:oklch(0.85 0.01 260);font-size:12px;margin-top:2px;">{{ g.tag }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isReviews }}" hint-placeholder-val="{{ false }}">
+    <div>
+      <div style="background:{{ navyBg }};padding:130px 28px 70px;text-align:center;">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:oklch(1 0 0 / 0.06);border:1px solid oklch(1 0 0 / 0.12);color:oklch(0.75 0.1 222);padding:7px 14px;border-radius:100px;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;animation:fadeUp 0.7s cubic-bezier(.2,.7,.2,1) both;">
+          <span style="width:6px;height:6px;border-radius:50%;background:oklch(0.71 0.19 45);box-shadow:0 0 10px oklch(0.71 0.19 45);animation:pulseGlow 2s ease-in-out infinite;"></span>
+          Avis clients
+        </div>
+        <h1 class="neel-h1" style="font-family:'Space Grotesk',sans-serif;font-size:44px;font-weight:700;color:#fff;margin:18px 0 0;animation:fadeUp 0.8s cubic-bezier(.2,.7,.2,1) 0.08s both;">Ce que disent nos clients.</h1>
+        <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:28px;animation:fadeUp 0.8s cubic-bezier(.2,.7,.2,1) 0.16s both;">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:46px;font-weight:700;color:#fff;">4.9</div>
+          <div style="text-align:left;">
+            <div style="display:flex;gap:2px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="oklch(0.71 0.19 45)"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"></polygon></svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="oklch(0.71 0.19 45)"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"></polygon></svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="oklch(0.71 0.19 45)"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"></polygon></svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="oklch(0.71 0.19 45)"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"></polygon></svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="oklch(0.71 0.19 45)"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"></polygon></svg>
+            </div>
+            <div style="font-size:13px;color:oklch(0.65 0.01 260);margin-top:4px;">sur avis clients vérifiés</div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:center;margin-top:26px;animation:fadeUp 0.8s cubic-bezier(.2,.7,.2,1) 0.24s both;">
+          <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;border:2px solid oklch(0.14 0.004 260);margin-right:-12px;"><image-slot id="review-hero-1" shape="circle" placeholder="Photo cliente 1" style="width:100%;height:100%;"></image-slot></div>
+          <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;border:2px solid oklch(0.14 0.004 260);margin-right:-12px;"><image-slot id="review-hero-2" shape="circle" placeholder="Photo client 2" style="width:100%;height:100%;"></image-slot></div>
+          <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;border:2px solid oklch(0.14 0.004 260);"><image-slot id="review-hero-3" shape="circle" placeholder="Photo cliente 3" style="width:100%;height:100%;"></image-slot></div>
+        </div>
+      </div>
+      <div style="max-width:1280px;margin:0 auto;padding:70px 28px;">
+        <div style="text-align:center;margin-bottom:32px;" data-reveal="1">
+          <span style="font-size:12px;color:oklch(0.55 0.012 260);background:oklch(0.96 0.004 90);padding:7px 16px;border-radius:100px;">★ Avis vérifiés — connectez votre profil Google Business pour les afficher ici automatiquement.</span>
+        </div>
+        <div class="neel-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
+          <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="5">
+            <div class="neel-card" data-reveal="1" style="background:#fff;border:1px solid {{ cardBorder }};border-radius:18px;padding:28px 24px;" style-hover="transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.08);">
+              <div style="display:flex;gap:3px;margin-bottom:14px;">
+                <sc-for list="{{ stars }}" as="star" hint-placeholder-count="5">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="oklch(0.71 0.19 45)"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"></polygon></svg>
+                </sc-for>
+              </div>
+              <p style="font-size:14px;line-height:1.6;color:oklch(0.3 0.012 260);">"{{ t.text }}"</p>
+              <div style="display:flex;align-items:center;gap:12px;margin-top:20px;">
+                <div style="width:38px;height:38px;border-radius:50%;overflow:hidden;flex-shrink:0;"><image-slot id="{{ t.slotId }}" shape="circle" placeholder="{{ t.photoLabel }}" style="width:100%;height:100%;"></image-slot></div>
+                <div>
+                  <div style="font-weight:700;font-size:13px;">{{ t.name }}</div>
+                  <div style="font-size:12px;color:oklch(0.55 0.012 260);">{{ t.loc }}</div>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="background:oklch(0.96 0.004 90);padding:80px 28px;">
+        <div style="max-width:800px;margin:0 auto;">
+          <div style="text-align:center;margin-bottom:44px;" data-reveal="1">
+            <div style="display:inline-flex;align-items:center;gap:8px;color:oklch(0.6 0.12 222);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">FAQ</div>
+            <h2 class="neel-h2" style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;margin:12px 0 0;">Questions fréquentes</h2>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <sc-for list="{{ faqItems }}" as="f" hint-placeholder-count="6">
+              <div style="background:#fff;border:1px solid oklch(0.89 0.005 90);border-radius:14px;overflow:hidden;">
+                <button onClick="{{ f.onClick }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:14px;background:none;border:none;padding:20px 22px;text-align:left;font-weight:700;font-size:15px;cursor:pointer;color:oklch(0.2 0.01 260);transition:background 0.25s;" style-hover="background:oklch(0.97 0.004 90);">
+                  {{ f.q }}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;transform:{{ f.chevron }};transition:transform 0.3s;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div style="max-height:{{ f.maxHeight }};overflow:hidden;transition:max-height 0.35s ease;">
+                  <div style="padding:0 22px 20px;font-size:14px;line-height:1.6;color:{{ mutedText }};">{{ f.a }}</div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+    <div>
+      <div style="position:relative;background:{{ navyBg }};padding-top:96px;overflow:hidden;">
+        <div class="neel-hero-split" style="position:relative;max-width:1280px;margin:0 auto;padding:70px 28px 90px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:center;">
+          <div>
+            <div style="display:inline-flex;align-items:center;gap:8px;background:oklch(1 0 0 / 0.06);border:1px solid oklch(1 0 0 / 0.12);color:oklch(0.75 0.1 222);padding:7px 14px;border-radius:100px;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;animation:fadeUp 0.7s cubic-bezier(.2,.7,.2,1) both;">
+              <span style="width:6px;height:6px;border-radius:50%;background:oklch(0.71 0.19 45);box-shadow:0 0 10px oklch(0.71 0.19 45);animation:pulseGlow 2s ease-in-out infinite;"></span>
+              Contact
+            </div>
+            <h1 class="neel-h1" style="font-family:'Space Grotesk',sans-serif;font-size:42px;line-height:1.08;font-weight:700;color:#fff;margin:18px 0 0;animation:fadeUp 0.8s cubic-bezier(.2,.7,.2,1) 0.08s both;">Parlons de votre projet.</h1>
+            <p style="color:oklch(0.72 0.01 260);font-size:16px;max-width:460px;margin:16px 0 0;line-height:1.6;animation:fadeUp 0.8s cubic-bezier(.2,.7,.2,1) 0.16s both;">Devis gratuit sous 48h. Réponse rapide, garantie.</p>
+          </div>
+          <div style="background:oklch(0.18 0.006 260 / 0.7);backdrop-filter:blur(16px);border:1px solid oklch(1 0 0 / 0.1);border-radius:22px;padding:32px;animation:fadeLeft 0.9s cubic-bezier(.2,.7,.2,1) 0.15s both;">
+            <div style="font-size:12px;color:oklch(0.68 0.12 222);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;">Appel direct</div>
+            <a href="tel:0699399518" style="display:block;font-family:'Space Grotesk',sans-serif;color:#fff;font-size:26px;font-weight:700;margin-top:10px;white-space:nowrap;">06 99 39 95 18</a>
+            <div style="height:1px;background:oklch(1 0 0 / 0.1);margin:18px 0;"></div>
+            <div style="font-size:13px;color:oklch(0.72 0.01 260);">Lun – Sam, 8h – 19h</div>
+            <div style="font-size:13px;color:oklch(0.55 0.012 260);margin-top:2px;">Urgences 7j/7 par téléphone</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="max-width:1280px;margin:0 auto;padding:80px 28px;display:grid;grid-template-columns:1.2fr 0.8fr;gap:40px;align-items:start;" class="neel-hero-split">
+        <div style="background:#fff;border:1px solid {{ cardBorder }};border-radius:20px;padding:36px;" data-reveal="1">
+          <sc-if value="{{ formNotSent }}" hint-placeholder-val="{{ true }}">
+            <div style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid oklch(0.93 0.005 90);">
+              <div style="font-size:12px;font-weight:700;color:oklch(0.45 0.012 260);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;">Configurateur rapide (facultatif)</div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <button type="button" onClick="{{ setQuickType1 }}" style="background:oklch(0.96 0.004 90);border:1px solid {{ cardBorder }};color:oklch(0.3 0.012 260);padding:8px 14px;border-radius:100px;font-size:12px;font-weight:600;cursor:pointer;">Maison</button>
+                <button type="button" onClick="{{ setQuickType2 }}" style="background:oklch(0.96 0.004 90);border:1px solid {{ cardBorder }};color:oklch(0.3 0.012 260);padding:8px 14px;border-radius:100px;font-size:12px;font-weight:600;cursor:pointer;">Appartement</button>
+                <button type="button" onClick="{{ setQuickType3 }}" style="background:oklch(0.96 0.004 90);border:1px solid {{ cardBorder }};color:oklch(0.3 0.012 260);padding:8px 14px;border-radius:100px;font-size:12px;font-weight:600;cursor:pointer;">Local professionnel</button>
+                <button type="button" onClick="{{ setQuickUrgent }}" style="background:oklch(0.71 0.19 45 / 0.1);border:1px solid oklch(0.71 0.19 45 / 0.4);color:oklch(0.55 0.19 45);padding:8px 14px;border-radius:100px;font-size:12px;font-weight:600;cursor:pointer;">⚡ Urgent</button>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px;">
+              <div style="flex:1;height:4px;background:oklch(0.93 0.005 90);border-radius:4px;overflow:hidden;">
+                <div style="height:100%;background:oklch(0.71 0.19 45);border-radius:4px;width:{{ step1Pct }}%;transition:width 0.4s ease;"></div>
+              </div>
+              <span style="font-size:12px;color:{{ mutedText }};font-weight:600;white-space:nowrap;">Étape {{ formStep }}/2</span>
+            </div>
+            <form onSubmit="{{ submitForm }}" style="display:flex;flex-direction:column;gap:16px;">
+              <sc-if value="{{ isStep1 }}" hint-placeholder-val="{{ true }}">
+                <div class="neel-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                  <div style="display:flex;flex-direction:column;gap:6px;">
+                    <label style="font-size:13px;font-weight:600;color:oklch(0.35 0.012 260);">Nom complet</label>
+                    <div style="position:relative;">
+                      <input type="text" required value="{{ form.name }}" onChange="{{ updateName }}" placeholder="Jean Dupont" style="width:100%;border:1px solid oklch(0.85 0.005 90);border-radius:10px;padding:12px 38px 12px 14px;font-size:14px;"></input>
+                      <sc-if value="{{ nameValid }}" hint-placeholder-val="{{ false }}">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.6 0.15 150)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);"><path d="M20 6 9 17l-5-5"></path></svg>
+                      </sc-if>
+                    </div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:6px;">
+                    <label style="font-size:13px;font-weight:600;color:oklch(0.35 0.012 260);">Téléphone</label>
+                    <div style="position:relative;">
+                      <input type="tel" required value="{{ form.phone }}" onChange="{{ updatePhone }}" placeholder="06 00 00 00 00" style="width:100%;border:1px solid oklch(0.85 0.005 90);border-radius:10px;padding:12px 38px 12px 14px;font-size:14px;"></input>
+                      <sc-if value="{{ phoneValid }}" hint-placeholder-val="{{ false }}">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.6 0.15 150)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);"><path d="M20 6 9 17l-5-5"></path></svg>
+                      </sc-if>
+                    </div>
+                  </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:6px;">
+                  <label style="font-size:13px;font-weight:600;color:oklch(0.35 0.012 260);">Email</label>
+                  <div style="position:relative;">
+                    <input type="email" value="{{ form.email }}" onChange="{{ updateEmail }}" placeholder="vous@email.com" style="width:100%;border:1px solid oklch(0.85 0.005 90);border-radius:10px;padding:12px 38px 12px 14px;font-size:14px;"></input>
+                    <sc-if value="{{ emailValid }}" hint-placeholder-val="{{ false }}">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.6 0.15 150)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </sc-if>
+                  </div>
+                </div>
+                <button type="button" onClick="{{ goStep2 }}" disabled="{{ false }}" style="background:{{ navyBg }};color:#fff;border:none;padding:16px;border-radius:100px;font-weight:700;font-size:15px;cursor:pointer;margin-top:6px;transition:transform 0.3s;" style-hover="transform:translateY(-2px);">Suivant</button>
+              </sc-if>
+              <sc-if value="{{ isStep2 }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;flex-direction:column;gap:6px;">
+                  <label style="font-size:13px;font-weight:600;color:oklch(0.35 0.012 260);">Type de service</label>
+                  <select value="{{ form.service }}" onChange="{{ updateService }}" style="border:1px solid oklch(0.85 0.005 90);border-radius:10px;padding:12px 14px;font-size:14px;background:#fff;">
+                    <option value="">Sélectionner...</option>
+                    <option value="Installation">Installation électrique</option>
+                    <option value="Renovation">Rénovation électrique</option>
+                    <option value="Normes">Mise aux normes</option>
+                    <option value="Depannage">Dépannage</option>
+                    <option value="Eclairage">Éclairage</option>
+                    <option value="Autre">Autre</option>
+                  </select>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:6px;">
+                  <label style="font-size:13px;font-weight:600;color:oklch(0.35 0.012 260);">Votre message</label>
+                  <textarea rows="4" value="{{ form.message }}" onChange="{{ updateMessage }}" placeholder="Décrivez votre projet..." style="border:1px solid oklch(0.85 0.005 90);border-radius:10px;padding:12px 14px;font-size:14px;resize:vertical;"></textarea>
+                </div>
+                <div style="display:flex;gap:12px;margin-top:6px;">
+                  <button type="button" onClick="{{ goStep1 }}" style="background:none;border:1px solid oklch(0.85 0.005 90);color:oklch(0.35 0.012 260);padding:16px 20px;border-radius:100px;font-weight:700;font-size:15px;cursor:pointer;">Précédent</button>
+                  <button type="submit" style="flex:1;background:oklch(0.71 0.19 45);color:#fff;border:none;padding:16px;border-radius:100px;font-weight:700;font-size:15px;cursor:pointer;transition:transform 0.3s,box-shadow 0.3s;" style-hover="transform:translateY(-2px);box-shadow:0 12px 30px oklch(0.71 0.19 45 / 0.4);">Envoyer ma demande de devis</button>
+                </div>
+              </sc-if>
+            </form>
+          </sc-if>
+          <sc-if value="{{ formSent }}" hint-placeholder-val="{{ false }}">
+            <div style="text-align:center;padding:40px 10px;">
+              <div style="width:56px;height:56px;border-radius:50%;background:oklch(0.71 0.19 45 / 0.12);display:flex;align-items:center;justify-content:center;margin:0 auto;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="oklch(0.64 0.19 45)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+              </div>
+              <h3 style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;margin-top:18px;">Merci, votre demande est envoyée !</h3>
+              <p style="color:{{ mutedText }};font-size:14px;margin-top:8px;">Nous répondons généralement sous 2h en journée, et sous 48h pour un devis détaillé.</p>
+              <div style="display:inline-block;margin-top:14px;background:oklch(0.96 0.004 90);color:oklch(0.35 0.012 260);font-size:12px;font-weight:700;padding:6px 14px;border-radius:100px;">Référence : {{ formRef }}</div>
+              <button onClick="{{ printForm }}" style="margin-top:20px;background:none;border:1px solid oklch(0.85 0.005 90);color:oklch(0.3 0.012 260);padding:10px 20px;border-radius:100px;font-size:13px;font-weight:600;cursor:pointer;">Imprimer ma demande</button>
+            </div>
+          </sc-if>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:16px;" data-reveal="1">
+          <div style="background:{{ navyBg }};border-radius:20px;padding:30px;">
+            <div style="font-size:12px;color:oklch(0.68 0.12 222);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;">Appel direct</div>
+            <a href="tel:0699399518" style="display:block;font-family:'Space Grotesk',sans-serif;color:#fff;font-size:28px;font-weight:700;margin-top:10px;">06 99 39 95 18</a>
+            <button onClick="{{ callNow }}" style="margin-top:16px;width:100%;background:oklch(0.71 0.19 45);color:#fff;border:none;padding:14px;border-radius:100px;font-weight:700;font-size:14px;cursor:pointer;transition:transform 0.3s;" style-hover="transform:translateY(-2px) scale(1.02);">Appeler maintenant</button>
+          </div>
+          <div style="background:#fff;border:1px solid {{ cardBorder }};border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.12 222)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <div><div style="font-weight:700;font-size:14px;">Bischwiller, Bas-Rhin</div><div style="font-size:13px;color:{{ mutedText }};">Grand Est, France</div></div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.12 222)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
+              <div><div style="font-weight:700;font-size:14px;">Lun – Sam, 8h – 19h</div><div style="font-size:13px;color:{{ mutedText }};">Urgences 7j/7 par téléphone</div></div>
+            </div>
+          </div>
+          <div style="position:relative;border-radius:20px;overflow:hidden;height:200px;border:1px solid {{ cardBorder }};">
+            <div style="position:absolute;top:12px;left:12px;background:#fff;border:1px solid {{ cardBorder }};border-radius:100px;padding:8px 14px 8px 10px;display:flex;align-items:center;gap:6px;box-shadow:0 8px 20px rgba(0,0,0,0.12);z-index:2;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="oklch(0.71 0.19 45)" stroke="oklch(0.71 0.19 45)"><path d="M12 2C8 2 5 5 5 9c0 6 7 13 7 13s7-7 7-13c0-4-3-7-7-7z"></path></svg>
+              <span style="font-size:12px;font-weight:700;color:oklch(0.2 0.01 260);">Bischwiller, Bas-Rhin</span>
+            </div>
+            <iframe title="Nord Est Elec - carte" src="https://www.google.com/maps?q=Bischwiller,France&output=embed" style="width:100%;height:100%;border:0;"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ lightboxOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeLightbox }}" style="position:fixed;inset:0;z-index:200;background:rgba(6,7,9,0.92);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:40px 24px;animation:fadeUp 0.25s ease both;">
+      <button onClick="{{ closeLightbox }}" style="position:absolute;top:24px;right:28px;background:oklch(1 0 0 / 0.1);border:none;color:#fff;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.25s;" style-hover="background:oklch(1 0 0 / 0.2);">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
+      </button>
+      <button onClick="{{ prevLightbox }}" style="position:absolute;left:20px;top:50%;transform:translateY(-50%);background:oklch(1 0 0 / 0.1);border:none;color:#fff;width:52px;height:52px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.25s,transform 0.25s;" style-hover="background:oklch(1 0 0 / 0.2);transform:translateY(-50%) scale(1.08);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button onClick="{{ nextLightbox }}" style="position:absolute;right:20px;top:50%;transform:translateY(-50%);background:oklch(1 0 0 / 0.1);border:none;color:#fff;width:52px;height:52px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.25s,transform 0.25s;" style-hover="background:oklch(1 0 0 / 0.2);transform:translateY(-50%) scale(1.08);">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+      <div onClick="{{ stopProp }}" style="max-width:900px;width:100%;">
+        <div style="border-radius:20px;overflow:hidden;height:60vh;box-shadow:0 30px 80px rgba(0,0,0,0.5);">
+          <image-slot key="{{ lightboxCurrent.slotId }}" id="{{ lightboxCurrent.slotId }}" shape="rect" placeholder="{{ lightboxCurrent.placeholder }}" style="width:100%;height:100%;"></image-slot>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:18px;color:#fff;flex-wrap:wrap;gap:10px;">
+          <div>
+            <div style="font-weight:700;font-size:16px;">{{ lightboxCurrent.title }}</div>
+            <div style="font-size:13px;color:oklch(0.7 0.01 260);margin-top:2px;">{{ lightboxCurrent.tag }}</div>
+          </div>
+          <div style="font-size:13px;color:oklch(0.6 0.01 260);">{{ lightboxCounter }}</div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <a href="https://wa.me/33699399518" target="_blank" rel="noopener" class="neel-print-hide neel-wa-btn" style="position:fixed;bottom:20px;right:20px;width:52px;height:52px;border-radius:50%;background:#25D366;box-shadow:0 8px 24px rgba(37,211,102,0.5);z-index:90;display:flex;align-items:center;justify-content:center;transition:transform 0.3s,bottom 0.3s;" style-hover="transform:scale(1.08);">
+    <span style="position:absolute;inset:0;border-radius:50%;border:2px solid #25D366;animation:ringPulseOut 2.4s ease-out infinite;pointer-events:none;"></span>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.2 7.6L3 21l1.9-5.6A8.5 8.5 0 1 1 21 11.5z"></path><path d="M8.5 10.5c0 3 2.5 5.5 5.5 5.5" stroke="#fff"></path></svg>
+  </a>
+
+  <sc-if value="{{ showStickyBar }}" hint-placeholder-val="{{ false }}">
+    <div class="neel-sticky-bar neel-print-hide" style="position:fixed;bottom:0;left:0;right:0;z-index:89;background:oklch(0.14 0.004 260 / 0.96);backdrop-filter:blur(10px);border-top:1px solid oklch(1 0 0 / 0.08);padding:10px 16px;gap:10px;display:none;">
+      <button onClick="{{ goContact }}" style="flex:1;display:flex;align-items:center;justify-content:center;text-align:center;background:oklch(0.71 0.19 45);color:#fff;border:none;padding:12px;border-radius:100px;font-weight:700;font-size:13px;cursor:pointer;">{{ t.ctaQuote }}</button>
+      <a href="tel:0699399518" style="flex:1;display:flex;align-items:center;justify-content:center;text-align:center;background:oklch(1 0 0 / 0.08);color:#fff;border:1px solid oklch(1 0 0 / 0.16);padding:12px;border-radius:100px;font-weight:700;font-size:13px;">{{ t.ctaCallShort }}</a>
+    </div>
+  </sc-if>
+
+  <div class="neel-print-hide" style="background:{{ footerBg }};padding:70px 28px 30px;">
+    <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;" class="neel-grid-3">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <img src="assets/logo.jpg" alt="Nord Est Elec" style="width:38px;height:38px;border-radius:50%;object-fit:cover;">
+          <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:#fff;">NORD EST ELEC</span>
+        </div>
+        <p style="color:oklch(0.55 0.012 260);font-size:13px;line-height:1.6;margin-top:14px;max-width:280px;">{{ t.footerTagline }}</p>
+      </div>
+      <div>
+        <div style="color:#fff;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:0.06em;">Plan du site</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px;">
+          <span onClick="{{ goHome }}" style="color:oklch(0.6 0.012 260);font-size:13px;cursor:pointer;transition:color 0.2s;" style-hover="color:oklch(0.71 0.19 45);">Accueil</span>
+          <span onClick="{{ goAbout }}" style="color:oklch(0.6 0.012 260);font-size:13px;cursor:pointer;transition:color 0.2s;" style-hover="color:oklch(0.71 0.19 45);">À propos</span>
+          <span onClick="{{ goServices }}" style="color:oklch(0.6 0.012 260);font-size:13px;cursor:pointer;transition:color 0.2s;" style-hover="color:oklch(0.71 0.19 45);">Services</span>
+          <span onClick="{{ goProjects }}" style="color:oklch(0.6 0.012 260);font-size:13px;cursor:pointer;transition:color 0.2s;" style-hover="color:oklch(0.71 0.19 45);">Réalisations</span>
+          <span onClick="{{ goReviews }}" style="color:oklch(0.6 0.012 260);font-size:13px;cursor:pointer;transition:color 0.2s;" style-hover="color:oklch(0.71 0.19 45);">Avis &amp; FAQ</span>
+          <span onClick="{{ goContact }}" style="color:oklch(0.6 0.012 260);font-size:13px;cursor:pointer;transition:color 0.2s;" style-hover="color:oklch(0.71 0.19 45);">Contact</span>
+        </div>
+      </div>
+      <div>
+        <div style="color:#fff;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:0.06em;">Contact</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px;">
+          <a href="tel:0699399518" style="display:flex;align-items:center;gap:7px;color:oklch(0.6 0.012 260);font-size:13px;transition:color 0.2s;" style-hover="color:oklch(0.71 0.19 45);"><span style="width:6px;height:6px;border-radius:50%;background:oklch(0.6 0.15 150);box-shadow:0 0 6px oklch(0.6 0.15 150);animation:pulseGlow 2s ease-in-out infinite;"></span>06 99 39 95 18</a>
+          <span style="color:oklch(0.6 0.012 260);font-size:13px;">Bischwiller, Bas-Rhin</span>
+          <span style="color:oklch(0.6 0.012 260);font-size:13px;">Grand Est, France</span>
+        </div>
+      </div>
+      <div>
+        <div style="color:#fff;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:0.06em;">Suivez-nous</div>
+        <div style="display:flex;gap:10px;margin-top:16px;">
+          <a href="#" style="width:36px;height:36px;border-radius:50%;background:oklch(1 0 0 / 0.06);display:flex;align-items:center;justify-content:center;transition:background 0.25s,transform 0.25s;" style-hover="background:oklch(0.71 0.19 45 / 0.25);transform:translateY(-2px);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.7 0.01 260)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg></a>
+          <a href="#" style="width:36px;height:36px;border-radius:50%;background:oklch(1 0 0 / 0.06);display:flex;align-items:center;justify-content:center;transition:background 0.25s,transform 0.25s;" style-hover="background:oklch(0.71 0.19 45 / 0.25);transform:translateY(-2px);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.7 0.01 260)" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1280px;margin:40px auto 0;padding-top:22px;border-top:1px solid oklch(1 0 0 / 0.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+      <span style="color:oklch(0.45 0.012 260);font-size:12px;">© {{ currentYear }} Nord Est Elec. Tous droits réservés.</span>
+      <span style="color:oklch(0.45 0.012 260);font-size:12px;">Mentions légales · Politique de confidentialité</span>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroVariant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;A&quot;,&quot;options&quot;:[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Hero&quot;}}">
+class Component extends DCLogic {
+  state = {
+    page: 'home',
+    mobileOpen: false,
+    galleryFilter: 'Tous',
+    faqOpen: 0,
+    counters: { years: new Date().getFullYear() - 2015, zone: 100, delai: 48 },
+    countersStarted: false,
+    formSent: false,
+    form: { name: '', phone: '', email: '', service: '', message: '' },
+    lightboxOpen: false,
+    lightboxItems: [],
+    lightboxIndex: 0,
+    scrollProgress: 0,
+    ba1: 55,
+    ba2: 45,
+    serviceFilter: 'Tous',
+    showStickyBar: false,
+    lang: 'fr',
+    ba1Touched: false,
+    ba2Touched: false,
+    formRef: '',
+    formStep: 1,
+    headerScrolled: false,
+    theme: 'dark',
+    introShown: false,
+    introFading: false,
+    suffixText: '',
+    suffixDeleting: false,
+    suffixIdx: 0
+  };
+
+  pageMeta = {
+    home: { title: 'Nord Est Elec — Électricien général à Bischwiller (Bas-Rhin)', desc: "Installation, rénovation, mise aux normes et dépannage électrique pour particuliers et professionnels à Bischwiller et dans le Bas-Rhin." },
+    about: { title: 'À propos — Nord Est Elec', desc: "Nord Est Elec, entreprise d'électricité générale créée en micro-entreprise en 2015 et devenue entreprise en 2019, intervient dans tout le Bas-Rhin." },
+    services: { title: 'Nos services — Nord Est Elec', desc: "Installation, rénovation, mise aux normes, dépannage, éclairage, courant fort et faible : tous nos services électriques." },
+    projects: { title: 'Réalisations — Nord Est Elec', desc: "Découvrez nos chantiers récents d'installation et de rénovation électrique dans le Bas-Rhin." },
+    reviews: { title: 'Avis clients & FAQ — Nord Est Elec', desc: "Avis de nos clients et réponses aux questions fréquentes sur nos interventions électriques." },
+    contact: { title: 'Contact — Nord Est Elec', desc: "Demandez votre devis gratuit ou appelez Nord Est Elec pour toute intervention électrique dans le Bas-Rhin." }
+  };
+
+  services = [
+    { n: '01', title: 'Installation électrique', desc: "Installation complète, neuf ou rénovation, conforme aux normes en vigueur.", group: 'Installation' },
+    { n: '02', title: 'Rénovation électrique', desc: "Remise à niveau de vos circuits existants pour plus de sécurité et de confort.", group: 'Installation' },
+    { n: '03', title: 'Mise aux normes', desc: "Mise en conformité NF C 15-100 pour votre logement ou local professionnel.", group: 'Conformité' },
+    { n: '04', title: 'Dépannage', desc: "Intervention rapide en cas de panne, coupure ou disjonction.", group: 'Urgence' },
+    { n: '05', title: 'Tableaux électriques', desc: "Pose et remplacement de tableaux électriques modernes et sécurisés.", group: 'Installation' },
+    { n: '06', title: 'Éclairage intérieur', desc: "Conception et installation d'éclairages sur mesure pour chaque pièce.", group: 'Éclairage' },
+    { n: '07', title: 'Éclairage extérieur', desc: "Mise en lumière de façades, jardins et allées, esthétique et durable.", group: 'Éclairage' },
+    { n: '08', title: 'Prises & réseaux', desc: "Installation de prises et réseaux électriques adaptés à vos usages.", group: 'Réseaux' },
+    { n: '09', title: 'Courant fort', desc: "Réseaux de puissance pour l'alimentation de vos équipements.", group: 'Réseaux' },
+    { n: '10', title: 'Courant faible', desc: "Réseaux data, téléphonie et automatismes basse tension.", group: 'Réseaux' },
+    { n: '11', title: 'Installation de climatisation', desc: "Pose d'installations de climatisation pour particuliers et professionnels.", group: 'Installation' }
+  ];
+  serviceGroups = ['Tous', 'Urgence', 'Installation', 'Conformité', 'Éclairage', 'Réseaux'];
+
+  translations = {
+    fr: {
+      navHome: 'Accueil', navAbout: 'À propos', navServices: 'Services', navProjects: 'Réalisations', navReviews: 'Avis & FAQ', navContact: 'Contact',
+      ctaQuote: 'Demander un devis gratuit', ctaCallShort: 'Appeler',
+      heroABadge: 'Électricien général · Bas-Rhin', heroATitle: "L'électricité, faite avec précision et sans compromis.",
+      heroASub: "Installation, rénovation, mise aux normes et dépannage pour particuliers et professionnels — à Bischwiller et dans tout le Bas-Rhin.",
+      trustAssured: 'Assuré & garanti', trustQuote: 'Devis gratuit', trustSince: 'Depuis 2015',
+      footerTagline: "Électricien général à Bischwiller, pour tous vos travaux d'installation électrique dans le Bas-Rhin."
+    },
+    de: {
+      navHome: 'Startseite', navAbout: 'Über uns', navServices: 'Leistungen', navProjects: 'Projekte', navReviews: 'Bewertungen & FAQ', navContact: 'Kontakt',
+      ctaQuote: 'Kostenloses Angebot anfordern', ctaCallShort: 'Anrufen',
+      heroABadge: 'Elektriker · Bas-Rhin', heroATitle: 'Elektroinstallation mit Präzision und ohne Kompromisse.',
+      heroASub: 'Installation, Renovierung, Normanpassung und Störungsbehebung für Privat- und Geschäftskunden — in Bischwiller und im gesamten Bas-Rhin.',
+      trustAssured: 'Versichert & garantiert', trustQuote: 'Kostenloses Angebot', trustSince: 'Seit 2015',
+      footerTagline: 'Elektriker in Bischwiller für alle Ihre Elektroinstallationen im Bas-Rhin.'
+    }
+  };
+
+  methodSteps = [
+    { n: '01', title: 'Prise de contact', desc: 'Vous nous contactez par téléphone ou via le formulaire, on échange sur votre besoin.' },
+    { n: '02', title: 'Diagnostic sur site', desc: 'Nous nous déplaçons pour évaluer précisément les travaux à réaliser.' },
+    { n: '03', title: 'Devis détaillé', desc: 'Un devis clair et gratuit, sans surprise, avant toute intervention.' },
+    { n: '04', title: 'Intervention', desc: "Nos électriciens réalisent les travaux dans le respect des normes et des délais." },
+    { n: '05', title: 'Contrôle qualité', desc: 'Vérification complète de l’installation avant mise en service.' },
+    { n: '06', title: 'Suivi & garantie', desc: 'Nous restons disponibles après intervention, travaux garantis.' }
+  ];
+
+  gallery = [
+    { cat: 'Installation', title: 'Installation complète — maison neuve', tag: 'Bischwiller', slotId: 'g1', placeholder: 'PHOTO — installation neuve' },
+    { cat: 'Tableaux', title: 'Remplacement tableau électrique', tag: 'Haguenau', slotId: 'g2', placeholder: 'PHOTO — tableau électrique' },
+    { cat: 'Éclairage', title: 'Éclairage extérieur de façade', tag: 'Brumath', slotId: 'g3', placeholder: 'PHOTO — éclairage extérieur' },
+    { cat: 'Rénovation', title: 'Rénovation électrique complète', tag: 'Strasbourg', slotId: 'g4', placeholder: 'PHOTO — rénovation' },
+    { cat: 'Mise aux normes', title: 'Mise en conformité NF C 15-100', tag: 'Bischheim', slotId: 'g5', placeholder: 'PHOTO — mise aux normes' },
+    { cat: 'Éclairage', title: 'Éclairage intérieur sur mesure', tag: 'Gries', slotId: 'g6', placeholder: 'PHOTO — éclairage intérieur' },
+    { cat: 'Installation', title: 'Installation locaux professionnels', tag: 'Weyersheim', slotId: 'g7', placeholder: 'PHOTO — local professionnel' },
+    { cat: 'Tableaux', title: 'Tableau divisionnaire courant faible', tag: 'Hoerdt', slotId: 'g8', placeholder: 'PHOTO — courant faible' }
+  ];
+  categories = ['Tous', 'Installation', 'Rénovation', 'Mise aux normes', 'Tableaux', 'Éclairage'];
+
+  testimonials = [
+    { name: 'Julien M.', loc: 'Bischwiller', slotId: 'a1', text: "Intervention rapide et travail impeccable pour la remise aux normes de notre tableau électrique. Je recommande." },
+    { name: 'Sophie R.', loc: 'Haguenau', slotId: 'a2', text: "Équipe sérieuse et à l'écoute, devis clair et respecté. Notre éclairage extérieur est magnifique." },
+    { name: 'Marc D.', loc: 'Brumath', slotId: 'a3', text: "Dépannage un samedi soir, intervention en moins d'une heure. Professionnalisme au rendez-vous." },
+    { name: 'Claire B.', loc: 'Strasbourg', slotId: 'a4', text: "Rénovation électrique complète de notre appartement, chantier propre et bien organisé." },
+    { name: 'Nicolas F.', loc: 'Bischheim', slotId: 'a5', text: "Installation de notre tableau et de nos prises, tout est nickel. Merci à Nord Est Elec." }
+  ];
+
+  faqs = [
+    { q: 'Le devis est-il gratuit ?', a: "Oui, chaque devis est établi gratuitement et sans engagement, après un diagnostic sur site ou par téléphone." },
+    { q: 'Quel est votre délai d\u2019intervention ?', a: "Pour les urgences, nous intervenons généralement sous 48h. Pour les chantiers planifiés, le délai est convenu ensemble." },
+    { q: 'Quelles zones couvrez-vous ?', a: "Nous intervenons à Bischwiller et dans tout le Bas-Rhin, pour les particuliers comme les professionnels." },
+    { q: 'Vos travaux sont-ils garantis et assurés ?', a: "Oui, toutes nos interventions sont couvertes par notre assurance décennale et responsabilité civile professionnelle." },
+    { q: 'Intervenez-vous en urgence le soir ou le week-end ?', a: "Oui, contactez-nous directement par téléphone pour toute urgence électrique en dehors des horaires habituels." },
+    { q: 'Travaillez-vous avec les particuliers et les professionnels ?', a: "Oui, nous réalisons des installations aussi bien pour les logements que pour les locaux professionnels." }
+  ];
+
+  zones = ['Bischwiller', 'Haguenau', 'Brumath', 'Strasbourg', 'Bischheim', 'Schiltigheim', 'Hoerdt', 'Weyersheim', 'Gries', 'Rohrwiller'];
+  stars = [1, 2, 3, 4, 5];
+
+  componentDidMount() {
+    document.addEventListener('mousemove', this.onTiltMove);
+
+    this.revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-in');
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('[data-reveal="1"]').forEach((el) => {
+      el.classList.add('neel-reveal');
+      this.revealObserver.observe(el);
+    });
+
+    if (this.statsEl) {
+      this.statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting && !this.state.countersStarted) {
+            this.setState({ countersStarted: true });
+            this.animateCounters();
+          }
+        });
+      }, { threshold: 0.3 });
+      this.statsObserver.observe(this.statsEl);
+    }
+
+    this.onKeyDown = (e) => {
+      if (!this.state.lightboxOpen) return;
+      if (e.key === 'Escape') this.closeLightbox();
+      if (e.key === 'ArrowRight') this.nextLightbox();
+      if (e.key === 'ArrowLeft') this.prevLightbox();
+    };
+    document.addEventListener('keydown', this.onKeyDown);
+
+    this.onScroll = () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      const p = h > 0 ? Math.min(100, Math.max(0, (window.scrollY / h) * 100)) : 0;
+      this.setState({ scrollProgress: p, showStickyBar: window.scrollY > 400, headerScrolled: window.scrollY > 30 });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+    this.applyPageMeta(this.state.page);
+    let introAlready = false;
+    try { introAlready = !!sessionStorage.getItem('neelIntroShown'); } catch (err) { introAlready = true; }
+    this.suffixWords = ['sans compromis.', 'sans exception.', 'en toute sécurité.'];
+    if (introAlready) {
+      this.setState({ introShown: true });
+      this.loopSuffix();
+    } else {
+      setTimeout(() => this.setState({ introFading: true }), 1900);
+      setTimeout(() => {
+        this.setState({ introShown: true });
+        try { sessionStorage.setItem('neelIntroShown', '1'); } catch (err) {}
+        this.loopSuffix();
+      }, 2800);
+    }
+  }
+
+  loopSuffix() {
+    const word = this.suffixWords[this.state.suffixIdx % this.suffixWords.length];
+    if (!this.state.suffixDeleting) {
+      const next = word.slice(0, this.state.suffixText.length + 1);
+      this.setState({ suffixText: next });
+      if (next.length < word.length) {
+        setTimeout(() => this.loopSuffix(), 55);
+      } else {
+        setTimeout(() => { this.setState({ suffixDeleting: true }); this.loopSuffix(); }, 2000);
+      }
+    } else {
+      const next = word.slice(0, this.state.suffixText.length - 1);
+      this.setState({ suffixText: next });
+      if (next.length > 0) {
+        setTimeout(() => this.loopSuffix(), 32);
+      } else {
+        this.setState({ suffixDeleting: false, suffixIdx: this.state.suffixIdx + 1 });
+        setTimeout(() => this.loopSuffix(), 350);
+      }
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState && prevState.page !== this.state.page) {
+      this.applyPageMeta(this.state.page);
+      requestAnimationFrame(() => {
+        document.querySelectorAll('[data-reveal="1"]:not(.neel-reveal)').forEach((el) => {
+          el.classList.add('neel-reveal');
+          if (this.revealObserver) this.revealObserver.observe(el);
+        });
+      });
+    }
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousemove', this.onTiltMove);
+    if (this.revealObserver) this.revealObserver.disconnect();
+    if (this.statsObserver) this.statsObserver.disconnect();
+    document.removeEventListener('keydown', this.onKeyDown);
+    window.removeEventListener('scroll', this.onScroll);
+  }
+
+  openLightbox = (items, index) => () => this.setState({ lightboxOpen: true, lightboxItems: items, lightboxIndex: index });
+  closeLightbox = () => this.setState({ lightboxOpen: false });
+  nextLightbox = (e) => { if (e) e.stopPropagation(); this.setState((s) => ({ lightboxIndex: (s.lightboxIndex + 1) % s.lightboxItems.length })); };
+  prevLightbox = (e) => { if (e) e.stopPropagation(); this.setState((s) => ({ lightboxIndex: (s.lightboxIndex - 1 + s.lightboxItems.length) % s.lightboxItems.length })); };
+  stopProp = (e) => e.stopPropagation();
+  onTiltMove = (e) => {
+    const el = e.target.closest && e.target.closest('.neel-tilt');
+    if (this._tiltEl && this._tiltEl !== el) {
+      this._tiltEl.style.transform = '';
+    }
+    if (!el) { this._tiltEl = null; return; }
+    this._tiltEl = el;
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - 0.5;
+    const py = (e.clientY - r.top) / r.height - 0.5;
+    el.style.transform = `perspective(900px) rotateX(${(-py * 10).toFixed(2)}deg) rotateY(${(px * 10).toFixed(2)}deg) translateY(-6px) scale3d(1.02,1.02,1.02)`;
+  };
+  setBa1Ref = (el) => { this.ba1Ref = el; };
+  setBa2Ref = (el) => { this.ba2Ref = el; };
+  dragMoveBA = (key, ref) => (e) => {
+    if (!ref) return;
+    const rect = ref.getBoundingClientRect();
+    let pct = ((e.clientX - rect.left) / rect.width) * 100;
+    pct = Math.max(0, Math.min(100, pct));
+    this.setState({ [key]: pct, [key + 'Touched']: true });
+  };
+  startDragBA1 = (e) => {
+    e.preventDefault();
+    this.setState({ ba1Touched: true });
+    const move = this.dragMoveBA('ba1', this.ba1Ref);
+    const up = () => { window.removeEventListener('pointermove', move); window.removeEventListener('pointerup', up); };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+  };
+  startDragBA2 = (e) => {
+    e.preventDefault();
+    this.setState({ ba2Touched: true });
+    const move = this.dragMoveBA('ba2', this.ba2Ref);
+    const up = () => { window.removeEventListener('pointermove', move); window.removeEventListener('pointerup', up); };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+  };
+  setQuickType = (type) => () => this.setState((s) => ({ form: { ...s.form, message: (s.form.message ? s.form.message + ' ' : '') + 'Type de bien : ' + type + '.' } }));
+  setQuickUrgent = () => this.setState((s) => ({ form: { ...s.form, service: 'Depannage', message: (s.form.message ? s.form.message + ' ' : '') + 'Demande urgente.' } }));
+  applyPageMeta(page) {
+    const meta = this.pageMeta[page] || this.pageMeta.home;
+    document.title = meta.title;
+    const tag = document.querySelector('meta[name="description"]');
+    if (tag) tag.setAttribute('content', meta.desc);
+    else {
+      const m = document.createElement('meta');
+      m.setAttribute('name', 'description');
+      m.setAttribute('content', meta.desc);
+      document.head.appendChild(m);
+    }
+  }
+  setServiceFilter = (f) => () => this.setState({ serviceFilter: f });
+  toggleLang = () => this.setState((s) => ({ lang: s.lang === 'fr' ? 'de' : 'fr' }));
+  printForm = () => window.print();
+  toggleTheme = () => this.setState((s) => ({ theme: s.theme === 'dark' ? 'light' : 'dark' }));
+
+  animateCounters() {
+    const targets = { years: new Date().getFullYear() - 2015, zone: 100, delai: 48 };
+    this.setState({ counters: { years: 0, zone: 0, delai: 0 } });
+    const start = performance.now();
+    const dur = 1200;
+    const step = (t) => {
+      const p = Math.min(1, (t - start) / dur);
+      const e = 1 - Math.pow(1 - p, 3);
+      this.setState({ counters: { years: Math.round(targets.years * e), zone: Math.round(targets.zone * e), delai: Math.round(targets.delai * e) } });
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  setStatsRef = (el) => { this.statsEl = el; };
+  setHeroRef = (el) => { this.heroEl = el; };
+
+  goTo = (page) => { this.setState({ page, mobileOpen: false }); window.scrollTo({ top: 0, behavior: 'smooth' }); };
+  goHome = () => this.goTo('home');
+  goAbout = () => this.goTo('about');
+  goServices = () => this.goTo('services');
+  goProjects = () => this.goTo('projects');
+  goReviews = () => this.goTo('reviews');
+  goContact = () => this.goTo('contact');
+  toggleMobile = () => this.setState((s) => ({ mobileOpen: !s.mobileOpen }));
+  setFilter = (f) => () => this.setState({ galleryFilter: f });
+  toggleFaq = (i) => () => this.setState((s) => ({ faqOpen: s.faqOpen === i ? -1 : i }));
+  callNow = () => { window.location.href = 'tel:0699399518'; };
+
+  updateName = (e) => { const v = e.target.value; this.setState((s) => ({ form: { ...s.form, name: v } })); };
+  updatePhone = (e) => { const v = e.target.value; this.setState((s) => ({ form: { ...s.form, phone: v } })); };
+  updateEmail = (e) => { const v = e.target.value; this.setState((s) => ({ form: { ...s.form, email: v } })); };
+  updateService = (e) => { const v = e.target.value; this.setState((s) => ({ form: { ...s.form, service: v } })); };
+  updateMessage = (e) => { const v = e.target.value; this.setState((s) => ({ form: { ...s.form, message: v } })); };
+  submitForm = (e) => { e.preventDefault(); this.setState({ formSent: true, formRef: 'NEE-' + Math.floor(1000 + Math.random() * 9000) }); };
+  goStep2 = (e) => { e.preventDefault(); this.setState({ formStep: 2 }); };
+  goStep1 = (e) => { e.preventDefault(); this.setState({ formStep: 1 }); };
+
+  renderVals() {
+    const heroVariant = this.props.heroVariant || 'A';
+    const page = this.state.page;
+    const activeColor = 'oklch(0.71 0.19 45)';
+    const inactiveColor = 'oklch(0.78 0.01 260)';
+
+    const categoryChips = this.categories.map((c) => {
+      const active = c === this.state.galleryFilter;
+      return {
+        label: c,
+        onClick: this.setFilter(c),
+        bg: active ? 'oklch(0.14 0.004 260)' : 'transparent',
+        color: active ? '#fff' : 'oklch(0.3 0.012 260)',
+        border: active ? 'oklch(0.14 0.004 260)' : 'oklch(0.85 0.005 90)'
+      };
+    });
+
+    const filteredGalleryRaw = this.gallery.filter((g) => this.state.galleryFilter === 'Tous' || g.cat === this.state.galleryFilter);
+    const filteredGallery = filteredGalleryRaw.map((g, i) => ({ ...g, onOpen: this.openLightbox(filteredGalleryRaw, i) }));
+    const homeGalleryRaw = this.gallery.slice(0, 3);
+    const homeGallery = homeGalleryRaw.map((g, i) => ({ ...g, onOpen: this.openLightbox(homeGalleryRaw, i) }));
+    const lightboxCurrent = this.state.lightboxItems[this.state.lightboxIndex] || {};
+    const serviceCategoryChips = this.serviceGroups.map((g) => {
+      const active = g === this.state.serviceFilter;
+      return {
+        label: g,
+        onClick: this.setServiceFilter(g),
+        bg: active ? 'oklch(0.14 0.004 260)' : 'transparent',
+        color: active ? '#fff' : 'oklch(0.3 0.012 260)',
+        border: active ? 'oklch(0.14 0.004 260)' : 'oklch(0.85 0.005 90)'
+      };
+    });
+    const filteredServices = this.services.filter((s) => this.state.serviceFilter === 'Tous' || s.group === this.state.serviceFilter);
+    const t = this.translations[this.state.lang];
+    const testimonialsWithPhotoLabel = this.testimonials.map((tm) => ({ ...tm, photoLabel: 'Photo ' + tm.name }));
+    const nameValid = this.state.form.name.trim().length > 1;
+    const phoneValid = /^[0-9+\s]{8,}$/.test(this.state.form.phone);
+    const emailValid = this.state.form.email.trim() !== '' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.state.form.email);
+
+    const faqItems = this.faqs.map((f, i) => {
+      const open = this.state.faqOpen === i;
+      return { ...f, onClick: this.toggleFaq(i), chevron: open ? 'rotate(180deg)' : 'rotate(0deg)', maxHeight: open ? '200px' : '0px' };
+    });
+
+    return {
+      page,
+      isHome: page === 'home', isAbout: page === 'about', isServices: page === 'services',
+      isProjects: page === 'projects', isReviews: page === 'reviews', isContact: page === 'contact',
+      isHeroA: heroVariant === 'A', isHeroB: heroVariant === 'B', isHeroC: heroVariant === 'C',
+      headerPadY: this.state.headerScrolled ? '7px' : '12px',
+      logoSize: this.state.headerScrolled ? '36px' : '44px',
+      isLight: this.state.theme === 'light',
+      isDark: this.state.theme === 'dark',
+      toggleTheme: this.toggleTheme,
+      pageBg: this.state.theme === 'light' ? 'oklch(0.975 0.012 200)' : 'oklch(0.985 0.003 90)',
+      pageText: this.state.theme === 'light' ? 'oklch(0.22 0.03 220)' : 'oklch(0.2 0.01 260)',
+      headerBg: this.state.theme === 'light' ? 'linear-gradient(120deg, oklch(0.58 0.13 200), oklch(0.66 0.15 193))' : 'oklch(0.14 0.004 260 / 0.86)',
+      headerBorder: this.state.theme === 'light' ? 'oklch(1 0 0 / 0.25)' : 'oklch(1 0 0 / 0.06)',
+      headerShadow: this.state.headerScrolled ? '0 8px 24px rgba(0,0,0,0.25)' : 'none',
+      headerText: this.state.theme === 'light' ? '#fff' : '#fff',
+      headerMuted: this.state.theme === 'light' ? 'oklch(0.95 0.03 195)' : 'oklch(0.68 0.12 222)',
+      themeIcon: this.state.theme === 'light' ? 'sun' : 'moon',
+      navyBg: this.state.theme === 'light' ? 'oklch(0.27 0.075 205)' : 'oklch(0.14 0.004 260)',
+      footerBg: this.state.theme === 'light' ? 'oklch(0.22 0.07 207)' : 'oklch(0.1 0.004 260)',
+      cardBorder: this.state.theme === 'light' ? 'oklch(0.85 0.04 205)' : 'oklch(0.91 0.005 90)',
+      mutedText: this.state.theme === 'light' ? 'oklch(0.42 0.04 210)' : 'oklch(0.5 0.012 260)',
+      showIntro: !this.state.introShown,
+      heroATitlePrefix: "L'électricité, faite avec précision et ",
+      heroASuffixDisplay: this.state.suffixText,
+      introOpacity: this.state.introFading ? 0 : 1,
+      introPointerEvents: this.state.introFading ? 'none' : 'auto',
+      mobileOpen: this.state.mobileOpen, toggleMobile: this.toggleMobile,
+      goHome: this.goHome, goAbout: this.goAbout, goServices: this.goServices, goProjects: this.goProjects, goReviews: this.goReviews, goContact: this.goContact,
+      homeNavColor: page === 'home' ? activeColor : inactiveColor,
+      aboutNavColor: page === 'about' ? activeColor : inactiveColor,
+      servicesNavColor: page === 'services' ? activeColor : inactiveColor,
+      projectsNavColor: page === 'projects' ? activeColor : inactiveColor,
+      reviewsNavColor: page === 'reviews' ? activeColor : inactiveColor,
+      contactNavColor: page === 'contact' ? activeColor : inactiveColor,
+      counters: this.state.counters,
+      setStatsRef: this.setStatsRef,
+      setHeroRef: this.setHeroRef,
+      services: this.services,
+      homeServices: this.services.slice(0, 8),
+      homeGallery,
+      methodSteps: this.methodSteps,
+      zones: this.zones,
+      categoryChips,
+      filteredGallery,
+      testimonials: testimonialsWithPhotoLabel,
+      stars: this.stars,
+      faqItems,
+      form: this.state.form,
+      updateName: this.updateName, updatePhone: this.updatePhone, updateEmail: this.updateEmail, updateService: this.updateService, updateMessage: this.updateMessage,
+      submitForm: this.submitForm,
+      formSent: this.state.formSent,
+      formNotSent: !this.state.formSent,
+      callNow: this.callNow,
+      currentYear: new Date().getFullYear(),
+      lightboxOpen: this.state.lightboxOpen,
+      lightboxCurrent,
+      lightboxCounter: this.state.lightboxItems.length ? (this.state.lightboxIndex + 1) + ' / ' + this.state.lightboxItems.length : '',
+      closeLightbox: this.closeLightbox,
+      nextLightbox: this.nextLightbox,
+      prevLightbox: this.prevLightbox,
+      stopProp: this.stopProp,
+      scrollProgress: this.state.scrollProgress,
+      nameValid, phoneValid, emailValid,
+      ba1: this.state.ba1,
+      ba2: this.state.ba2,
+      ba1ClipRight: 100 - this.state.ba1,
+      ba2ClipRight: 100 - this.state.ba2,
+      ba1InnerWidth: (10000 / Math.max(this.state.ba1, 1)).toFixed(1) + '%',
+      ba2InnerWidth: (10000 / Math.max(this.state.ba2, 1)).toFixed(1) + '%',
+      ba1HandleAnim: this.state.ba1Touched ? 'none' : 'pulseGlow 1.6s ease-in-out infinite',
+      ba2HandleAnim: this.state.ba2Touched ? 'none' : 'pulseGlow 1.6s ease-in-out infinite',
+      formRef: this.state.formRef,
+      setQuickType1: this.setQuickType('Maison'),
+      setQuickType2: this.setQuickType('Appartement'),
+      setQuickType3: this.setQuickType('Local professionnel'),
+      setQuickUrgent: this.setQuickUrgent,
+      setBa1Ref: this.setBa1Ref,
+      setBa2Ref: this.setBa2Ref,
+      startDragBA1: this.startDragBA1,
+      startDragBA2: this.startDragBA2,
+      serviceCategoryChips,
+      filteredServices,
+      showStickyBar: this.state.showStickyBar,
+      t,
+      lang: this.state.lang,
+      langIsFr: this.state.lang === 'fr',
+      toggleLang: this.toggleLang,
+      printForm: this.printForm,
+      formStep: this.state.formStep,
+      isStep1: this.state.formStep === 1,
+      isStep2: this.state.formStep === 2,
+      goStep1: this.goStep1,
+      goStep2: this.goStep2,
+      step1Valid: nameValid && phoneValid,
+      step1Pct: this.state.formStep === 1 ? 50 : 100
+    };
+  }
+}
+
+</script>
+</body>
+</html>
