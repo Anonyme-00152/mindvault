@@ -142,7 +142,7 @@ const faqs = [
   },
   {
     q: "Is there a demo account?",
-    a: "Yes — the sign-in page shows demo credentials and can fill them in for you. The demo vault starts with sample notes so you can explore right away.",
+    a: "Yes — the sign-in page shows demo credentials and fills them in for you with one click. The vault then starts empty and private to your browser, ready for your own notes.",
   },
 ];
 

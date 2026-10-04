@@ -37,13 +37,13 @@ export function InstallBanner() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
-          style={{ bottom: "calc(1rem + var(--sab))" }}
-          className="fixed left-4 right-4 z-[55] glass !bg-bg-elev !border-brand/40 p-4 shadow-2xl"
+          style={{ bottom: "calc(4.75rem + var(--sab))" }}
+          className="fixed left-4 right-4 z-[55] rounded-2xl border border-line bg-bg-elev p-4 shadow-[var(--shadow-pop)]"
           role="dialog"
           aria-label="Install MindVault"
         >
           <div className="flex items-start gap-3">
-            <div className="w-10 h-10 rounded-xl bg-grad shrink-0" />
+            <div className="w-10 h-10 rounded-xl bg-[#16181d] shrink-0 flex items-center justify-center"><svg width="20" height="20" viewBox="0 0 64 64" aria-hidden><path d="M19 45V20l13 15 13-15v25" fill="none" stroke="#a69dff" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" /></svg></div>
             <div className="min-w-0 flex-1">
               <p className="text-[14px] font-medium">Add MindVault to your Home Screen</p>
               <p className="text-[12.5px] text-fg-muted mt-1 leading-relaxed">

@@ -122,11 +122,7 @@ export default function SettingsPage() {
     <div className="max-w-3xl mx-auto px-4 md:px-8 py-8 md:py-10">
       <PageHeader
         eyebrow={env.ios ? (env.standalone ? "iPhone · installed app" : "iPhone · Safari") : env.standalone ? "Installed app" : "Browser"}
-        title={
-          <>
-            Settings<span className="serif-i text-brand">.</span>
-          </>
-        }
+        title="Settings"
         subtitle="Your phone, your reminders, your data — everything that connects MindVault to the device you're on."
       />
 
@@ -155,7 +151,7 @@ export default function SettingsPage() {
         title="Reminders & notifications"
         body="A notification before each timed note — on this device while the app is open, and pushed to your phone when it's closed."
         right={
-          <button className={cn("btn btn-sm", enabled ? "btn-solid" : "btn-ghost")} onClick={toggleNotifications} disabled={busy === "push" || !env.push} data-cursor="hover">
+          <button className={cn("btn btn-sm", enabled ? "btn-solid" : "btn-ghost")} onClick={toggleNotifications} disabled={busy === "push" || !env.push}>
             {busy === "push" ? <span className="spinner" /> : enabled ? <><Check size={13} /> On</> : "Turn on"}
           </button>
         }
@@ -171,7 +167,7 @@ export default function SettingsPage() {
           <p className="eyebrow mb-2">Remind me</p>
           <div className="flex flex-wrap gap-2">
             {LEADS.map((v) => (
-              <button key={v} onClick={() => changeLead(v)} className={cn("h-8 px-3.5 rounded-full text-[13px] border transition-colors", lead === v ? "bg-accent text-accent-fg border-accent" : "border-line text-fg-muted hover:text-fg")} data-cursor="hover">
+              <button key={v} onClick={() => changeLead(v)} className="pill" data-on={lead === v}>
                 {v === 0 ? "At the time" : `${v} min before`}
               </button>
             ))}
@@ -179,10 +175,10 @@ export default function SettingsPage() {
         </div>
 
         <div className="mt-5 flex flex-wrap gap-2">
-          <button className="btn btn-ghost btn-sm" onClick={testLocal} disabled={busy === "local"} data-cursor="hover">
+          <button className="btn btn-ghost btn-sm" onClick={testLocal} disabled={busy === "local"}>
             <BellRing size={13} /> Test on this device
           </button>
-          <button className="btn btn-ghost btn-sm" onClick={testPush} disabled={busy === "test" || !enabled} data-cursor="hover">
+          <button className="btn btn-ghost btn-sm" onClick={testPush} disabled={busy === "test" || !enabled}>
             <Wifi size={13} /> Send a real push
           </button>
         </div>
@@ -194,7 +190,7 @@ export default function SettingsPage() {
               {upcoming.slice(0, 5).map((r) => (
                 <li key={r.id} className="flex items-center justify-between text-[13px]">
                   <span className="truncate">{r.title}</span>
-                  <span className="font-mono text-[11px] text-fg-faint shrink-0 ml-3">{new Date(r.at).toLocaleString(undefined, { weekday: "short", hour: "2-digit", minute: "2-digit" })}</span>
+                  <span className="text-[12px] tabular-nums text-fg-faint shrink-0 ml-3">{new Date(r.at).toLocaleString(undefined, { weekday: "short", hour: "2-digit", minute: "2-digit" })}</span>
                 </li>
               ))}
             </ul>
@@ -227,7 +223,7 @@ export default function SettingsPage() {
               setStorage(await storageInfo());
               notify(ok ? "Storage is now persistent" : "The browser declined — install the app to make it persistent");
             }}
-            data-cursor="hover"
+           
           >
             Keep my data
           </button>
@@ -235,10 +231,10 @@ export default function SettingsPage() {
       </Section>
 
       {/* Theme */}
-      <Section icon={theme === "dark" ? <Moon size={16} /> : <Sun size={16} />} title="Appearance" body="Dark by default. Light is a first-class theme, not an afterthought.">
+      <Section icon={theme === "dark" ? <Moon size={16} /> : <Sun size={16} />} title="Appearance" body="Light by default. A dark theme is available if you prefer it.">
         <div className="flex gap-2">
-          {(["dark", "light"] as const).map((t) => (
-            <button key={t} onClick={() => setTheme(t)} className={cn("h-9 px-4 rounded-full text-[13px] border capitalize", theme === t ? "bg-accent text-accent-fg border-accent" : "border-line text-fg-muted")} data-cursor="hover">
+          {(["light", "dark"] as const).map((t) => (
+            <button key={t} onClick={() => setTheme(t)} className="pill capitalize" data-on={theme === t}>
               {t}
             </button>
           ))}
@@ -252,9 +248,9 @@ function Section({ icon, title, body, right, children }: { icon: React.ReactNode
   return (
     <section className="glass p-5 md:p-6 mb-4">
       <div className="flex items-start gap-3 mb-4">
-        <span className="text-brand mt-0.5">{icon}</span>
+        <span className="w-9 h-9 rounded-xl bg-brand-soft text-brand inline-flex items-center justify-center shrink-0">{icon}</span>
         <div className="flex-1 min-w-0">
-          <h2 className="text-[15px] font-medium">{title}</h2>
+          <h2 className="text-[15px] font-semibold tracking-[-0.01em]">{title}</h2>
           <p className="text-[13px] text-fg-muted mt-1 leading-relaxed">{body}</p>
         </div>
         {right}
@@ -266,7 +262,7 @@ function Section({ icon, title, body, right, children }: { icon: React.ReactNode
 
 function Fact({ ok, label, hint }: { ok: boolean; label: string; hint?: string }) {
   return (
-    <div className="flex items-start gap-2 rounded-xl border border-line px-3 py-2.5">
+    <div className="flex items-start gap-2.5 rounded-xl border border-line bg-bg px-3 py-2.5">
       <span className={cn("mt-1 w-2 h-2 rounded-full shrink-0", ok ? "bg-ok" : "bg-warn")} />
       <div className="min-w-0">
         <p className="text-fg">{label}</p>

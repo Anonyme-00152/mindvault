@@ -31,13 +31,13 @@ export interface ToastAction {
 }
 
 export const useUI = create<UIState>((set) => ({
-  theme: "dark",
+  theme: "light",
   setTheme: (theme) => {
     set({ theme });
     if (typeof document !== "undefined") {
       document.documentElement.dataset.theme = theme;
       try {
-        localStorage.setItem("mv-theme", theme);
+        localStorage.setItem("mv-theme-v2", theme);
       } catch {}
     }
   },

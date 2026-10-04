@@ -3,15 +3,14 @@
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { addMonths, eachDayOfInterval, endOfMonth, endOfWeek, format, isSameMonth, startOfMonth, startOfWeek, subMonths } from "date-fns";
-import { ChevronLeft, ChevronRight, Plus } from "lucide-react";
+import { CalendarDays, ChevronLeft, ChevronRight, Plus } from "lucide-react";
 import { useFiles, useNotes } from "@/lib/hooks";
 import { useUI } from "@/lib/store";
+import type { Note } from "@/lib/types";
 import { toISODate } from "@/lib/utils";
-import { NoteCard } from "@/components/app/NoteCard";
+import { NoteCard, PRI_COLOR } from "@/components/app/NoteCard";
 import { PageHeader } from "@/components/app/PageHeader";
 import { EmptyState } from "@/components/app/EmptyState";
-
-const PRI_DOT: Record<string, string> = { urgent: "#ff5d5d", high: "#ffb020", medium: "#e8e06b", low: "#4ade80" };
 
 export default function CalendarPage() {
   const notes = useNotes();
@@ -30,16 +29,18 @@ export default function CalendarPage() {
     [month],
   );
   const byDate = useMemo(() => {
-    const m = new Map<string, typeof notes>();
+    const m = new Map<string, Note[]>();
     (notes ?? []).forEach((n) => {
       if (!n.date) return;
       m.set(n.date, [...(m.get(n.date) ?? []), n]);
     });
+    m.forEach((list) => list.sort((a, b) => (a.time ?? "99").localeCompare(b.time ?? "99")));
     return m;
   }, [notes]);
 
   const today = toISODate(new Date());
-  const agenda = (byDate.get(selected) ?? []).slice().sort((a, b) => (a.time ?? "99").localeCompare(b.time ?? "99"));
+  const agenda = byDate.get(selected) ?? [];
+  const monthCount = (notes ?? []).filter((n) => n.date && isSameMonth(new Date(n.date + "T00:00:00"), month)).length;
 
   function go(delta: number) {
     setDir(delta);
@@ -51,66 +52,69 @@ export default function CalendarPage() {
   }
 
   return (
-    <div className="max-w-6xl mx-auto px-4 md:px-8 py-8 md:py-10">
+    <div className="max-w-[1280px] mx-auto px-4 md:px-8 py-7 md:py-9">
       <PageHeader
-        eyebrow={`Week ${format(new Date(selected + "T00:00:00"), "I")}`}
-        title={
-          <>
-            Calendar<span className="serif-i text-brand">.</span>
-          </>
-        }
+        title="Calendar"
+        subtitle={`${monthCount} scheduled note${monthCount === 1 ? "" : "s"} in ${format(month, "MMMM")}. Double-click a day to plan something.`}
         actions={
-          <button
-            className="btn btn-ghost btn-sm"
-            onClick={() => {
-              setMonth(startOfMonth(new Date()));
-              setSelected(today);
-            }}
-            data-cursor="hover"
-          >
-            Today
+          <button className="btn btn-solid btn-sm" onClick={() => newOn(selected)}>
+            <Plus size={14} /> Schedule note
           </button>
         }
       />
 
-      <div className="grid lg:grid-cols-[1.4fr_1fr] gap-6">
-        <div className="glass p-4 md:p-6 overflow-hidden">
-          <div className="flex items-center justify-between mb-5">
-            <button className="btn-icon" onClick={() => go(-1)} aria-label="Previous month" data-cursor="hover">
-              <ChevronLeft size={16} />
-            </button>
+      <div className="grid xl:grid-cols-[minmax(0,1fr)_340px] gap-5">
+        <div className="card overflow-hidden">
+          {/* Toolbar */}
+          <div className="flex items-center gap-2 px-4 h-14 border-b border-line">
             <AnimatePresence mode="wait" initial={false}>
               <motion.h2
                 key={month.toISOString()}
-                initial={{ opacity: 0, x: dir * 16 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -dir * 16 }}
-                transition={{ duration: 0.25 }}
-                className="display text-2xl md:text-3xl"
+                initial={{ opacity: 0, y: dir * 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -dir * 6 }}
+                transition={{ duration: 0.18 }}
+                className="text-[17px] font-semibold tracking-[-0.02em]"
               >
-                {format(month, "MMMM")} <span className="serif-i text-grad">{format(month, "yyyy")}</span>
+                {format(month, "MMMM")} <span className="text-fg-faint font-medium">{format(month, "yyyy")}</span>
               </motion.h2>
             </AnimatePresence>
-            <button className="btn-icon" onClick={() => go(1)} aria-label="Next month" data-cursor="hover">
-              <ChevronRight size={16} />
-            </button>
+            <div className="ml-auto flex items-center gap-1">
+              <button
+                className="btn btn-sm"
+                onClick={() => {
+                  setDir(1);
+                  setMonth(startOfMonth(new Date()));
+                  setSelected(today);
+                }}
+              >
+                Today
+              </button>
+              <button className="btn-icon" onClick={() => go(-1)} aria-label="Previous month">
+                <ChevronLeft size={17} />
+              </button>
+              <button className="btn-icon" onClick={() => go(1)} aria-label="Next month">
+                <ChevronRight size={17} />
+              </button>
+            </div>
           </div>
 
-          <div className="grid grid-cols-7 gap-1 mb-1">
+          <div className="grid grid-cols-7 border-b border-line bg-bg">
             {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((d) => (
-              <span key={d} className="eyebrow text-center py-1">
-                {d}
+              <span key={d} className="text-[11.5px] font-semibold text-fg-faint uppercase tracking-[0.04em] text-center md:text-left px-2 py-2">
+                <span className="md:hidden">{d[0]}</span>
+                <span className="hidden md:inline">{d}</span>
               </span>
             ))}
           </div>
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={month.toISOString()}
-              initial={{ opacity: 0, x: dir * 30 }}
+              initial={{ opacity: 0, x: dir * 18 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -dir * 30 }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="grid grid-cols-7 gap-1"
+              exit={{ opacity: 0, x: -dir * 18 }}
+              transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+              className="grid grid-cols-7 gap-px bg-line"
             >
               {days.map((d) => {
                 const iso = toISODate(d);
@@ -118,21 +122,35 @@ export default function CalendarPage() {
                 return (
                   <button
                     key={iso}
-                    className="cal-cell text-left"
+                    className="cal-cell"
                     data-today={iso === today}
                     data-selected={iso === selected}
                     data-outside={!isSameMonth(d, month)}
                     onClick={() => setSelected(iso)}
                     onDoubleClick={() => newOn(iso)}
-                    data-cursor="hover"
+                    aria-label={`${format(d, "EEEE d MMMM")}${items.length ? `, ${items.length} note${items.length > 1 ? "s" : ""}` : ""}`}
+                    aria-pressed={iso === selected}
                   >
-                    <span className="text-[13px] font-medium">{format(d, "d")}</span>
+                    <span className="cal-num inline-flex items-center justify-center w-6 h-6 rounded-full text-[12.5px] font-medium tabular-nums">{format(d, "d")}</span>
+                    {/* Desktop: titles. Phone: dots. */}
+                    <span className="hidden md:block mt-1 space-y-0.5">
+                      {items.slice(0, 3).map((n) => (
+                        <span
+                          key={n.id}
+                          className="flex items-center gap-1 h-5 px-1.5 rounded text-[11px] font-medium truncate"
+                          style={{ background: `${PRI_COLOR[n.priority]}14`, color: PRI_COLOR[n.priority] }}
+                        >
+                          {n.time && <span className="tabular-nums opacity-80 shrink-0">{n.time}</span>}
+                          <span className="truncate text-fg">{n.title}</span>
+                        </span>
+                      ))}
+                      {items.length > 3 && <span className="block px-1.5 text-[11px] text-fg-faint">+{items.length - 3} more</span>}
+                    </span>
                     {items.length > 0 && (
-                      <span className="absolute left-2 right-2 bottom-2 flex items-center gap-1">
-                        {items.slice(0, 4).map((n) => (
-                          <span key={n.id} className="w-1.5 h-1.5 rounded-full" style={{ background: iso === selected ? "currentColor" : PRI_DOT[n.priority] }} />
+                      <span className="md:hidden absolute left-0 right-0 bottom-1.5 flex justify-center gap-0.5">
+                        {items.slice(0, 3).map((n) => (
+                          <span key={n.id} className="w-1 h-1 rounded-full" style={{ background: PRI_COLOR[n.priority] }} />
                         ))}
-                        {items.length > 4 && <span className="font-mono text-[9px] opacity-60">+{items.length - 4}</span>}
                       </span>
                     )}
                   </button>
@@ -140,21 +158,24 @@ export default function CalendarPage() {
               })}
             </motion.div>
           </AnimatePresence>
-          <p className="text-[11px] text-fg-faint mt-4">Double-click a day to schedule a note.</p>
         </div>
 
-        <div>
-          <div className="flex items-center justify-between mb-3">
+        {/* Agenda */}
+        <aside className="card p-4 md:p-5 self-start xl:sticky xl:top-6">
+          <div className="flex items-start justify-between gap-3 mb-4">
             <div>
-              <p className="eyebrow">{selected === today ? "Today" : "Agenda"}</p>
-              <h3 className="text-[17px] font-medium mt-1">{format(new Date(selected + "T00:00:00"), "EEEE d MMMM")}</h3>
+              <p className="text-[12.5px] font-medium text-brand">{selected === today ? "Today" : format(new Date(selected + "T00:00:00"), "EEEE")}</p>
+              <h3 className="text-[18px] font-semibold tracking-[-0.02em] mt-0.5">{format(new Date(selected + "T00:00:00"), "d MMMM yyyy")}</h3>
+              <p className="text-[12.5px] text-fg-faint mt-0.5">
+                {agenda.length === 0 ? "Nothing planned" : `${agenda.length} note${agenda.length > 1 ? "s" : ""}`}
+              </p>
             </div>
-            <button className="btn btn-ghost btn-sm" onClick={() => newOn(selected)} data-cursor="hover">
+            <button className="btn btn-sm" onClick={() => newOn(selected)}>
               <Plus size={13} /> Add
             </button>
           </div>
           {agenda.length === 0 ? (
-            <EmptyState title="Nothing planned" body="Add a note to this day." action={{ label: "Schedule a note", onClick: () => newOn(selected) }} />
+            <EmptyState icon={<CalendarDays size={18} />} title="A free day" body="Add a note to plan something here." action={{ label: "Schedule a note", onClick: () => newOn(selected) }} />
           ) : (
             <div className="space-y-2">
               <AnimatePresence mode="popLayout">
@@ -164,7 +185,7 @@ export default function CalendarPage() {
               </AnimatePresence>
             </div>
           )}
-        </div>
+        </aside>
       </div>
     </div>
   );

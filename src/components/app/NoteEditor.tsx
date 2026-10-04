@@ -10,6 +10,7 @@ import { CATEGORIES, CATEGORY_LABEL, PRIORITIES, REMIND_DAY_HOUR, REMIND_PRESETS
 import { effectiveLead, leadLabel } from "@/lib/reminders";
 import { cn, formatBytes, uid } from "@/lib/utils";
 import { FileThumb } from "./FileThumb";
+import { PRI_COLOR } from "./NoteCard";
 import { AddToCalendar, calendarLinks } from "./AddToCalendar";
 import { getLeadMin, shareNote } from "@/lib/pwa";
 
@@ -154,7 +155,7 @@ export function NoteEditor() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
     >
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-md" onClick={discard} />
+      <div className="absolute inset-0 bg-overlay backdrop-blur-[3px]" onClick={discard} />
       <motion.div
         role="dialog"
         aria-modal
@@ -164,19 +165,22 @@ export function NoteEditor() {
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 30, scale: 0.98 }}
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-        className="relative w-full max-w-3xl h-[100dvh] sm:h-auto sm:max-h-[88vh] glass !bg-bg-elev !rounded-none sm:!rounded-3xl shadow-2xl flex flex-col overflow-hidden"
+        className="relative w-full max-w-3xl h-[100dvh] sm:h-auto sm:max-h-[90vh] bg-bg-elev sm:border sm:border-line sm:rounded-2xl shadow-[var(--shadow-pop)] flex flex-col overflow-hidden"
         style={{ paddingTop: "var(--sat)" }}
         data-lenis-prevent
       >
         {/* Header */}
-        <div className="flex items-center gap-2 px-4 sm:px-6 h-14 border-b border-line shrink-0">
-          <span className="eyebrow">{isNew ? "New note" : "Edit note"}</span>
+        <div className="flex items-center gap-2 px-4 sm:px-6 h-14 border-b border-line shrink-0 min-w-0 [&>span:first-child]:truncate">
+          <span className="text-[13px] text-fg-faint">
+            Notes <span className="mx-1">/</span>
+            <span className="text-fg font-medium">{isNew ? "New note" : note.title.trim() || "Untitled"}</span>
+          </span>
           <span className="ml-auto flex items-center gap-1">
-            <button className="btn-icon" onClick={share} aria-label="Share" title="Share" data-cursor="hover">
+            <button className="btn-icon" onClick={share} aria-label="Share" title="Share">
               <Share2 size={15} />
             </button>
-            <button className="btn-icon" onClick={() => set("pinned", !note.pinned)} aria-label="Pin" title="Pin" data-cursor="hover">
-              {note.pinned ? <Pin size={15} className="text-fg" /> : <PinOff size={15} />}
+            <button className="btn-icon" onClick={() => set("pinned", !note.pinned)} aria-label="Pin" title="Pin">
+              {note.pinned ? <Pin size={15} className="text-brand" /> : <PinOff size={15} />}
             </button>
             {!isNew && (
               <button
@@ -185,12 +189,12 @@ export function NoteEditor() {
                 onBlur={() => setConfirmDelete(false)}
                 aria-label="Delete"
                 title={confirmDelete ? "Click again to confirm" : "Delete"}
-                data-cursor="hover"
+               
               >
                 <Trash2 size={15} />
               </button>
             )}
-            <button className="btn-icon" onClick={discard} aria-label="Close" data-cursor="hover">
+            <button className="btn-icon" onClick={discard} aria-label="Close">
               <X size={16} />
             </button>
           </span>
@@ -203,18 +207,19 @@ export function NoteEditor() {
             value={note.title}
             onChange={(e) => set("title", e.target.value)}
             placeholder="Title"
-            className="w-full bg-transparent outline-none display text-3xl sm:text-4xl placeholder:text-fg-faint"
+            className="title-input w-full bg-transparent outline-none text-[26px] sm:text-[30px] font-semibold tracking-[-0.03em] leading-tight placeholder:text-fg-faint"
           />
 
           <div className="flex flex-wrap gap-2">
-            <select className="field !w-auto !h-9 text-[13px]" value={note.priority} onChange={(e) => set("priority", e.target.value as Note["priority"])} aria-label="Priority">
+            <div className="seg" role="radiogroup" aria-label="Priority">
               {PRIORITIES.map((p) => (
-                <option key={p} value={p}>
-                  {p[0].toUpperCase() + p.slice(1)} priority
-                </option>
+                <button key={p} type="button" role="radio" aria-checked={note.priority === p} data-on={note.priority === p} onClick={() => set("priority", p)} className="capitalize">
+                  <span className="w-2 h-2 rounded-full" style={{ background: PRI_COLOR[p] }} />
+                  {p}
+                </button>
               ))}
-            </select>
-            <select className="field !w-auto !h-9 text-[13px]" value={note.category} onChange={(e) => set("category", e.target.value as Note["category"])} aria-label="Category">
+            </div>
+            <select className="field !w-auto !h-9 !text-[13px]" value={note.category} onChange={(e) => set("category", e.target.value as Note["category"])} aria-label="Category">
               {CATEGORIES.map((c) => (
                 <option key={c} value={c}>
                   {CATEGORY_LABEL[c]}
@@ -224,7 +229,7 @@ export function NoteEditor() {
           </div>
 
           {/* Schedule: date, start/end time, reminder */}
-          <section className="rounded-2xl border border-line p-3 sm:p-4 space-y-3">
+          <section className="rounded-xl border border-line bg-bg p-3 sm:p-4 space-y-3">
             <div className="flex flex-wrap items-center gap-2">
               <label className="field !w-auto !h-10 flex items-center gap-2 text-[13px]">
                 <Calendar size={13} className="text-fg-faint" />
@@ -298,9 +303,10 @@ export function NoteEditor() {
                 <li key={c.id} className="group flex items-center gap-3 h-9">
                   <button
                     onClick={() => updateTask(c.id, { done: !c.done })}
-                    className={cn("w-[18px] h-[18px] rounded-[5px] border flex items-center justify-center transition-colors", c.done ? "bg-accent border-accent text-accent-fg" : "border-line-strong")}
+                    className="check"
+                    data-on={c.done}
                     aria-label={c.done ? "Mark undone" : "Mark done"}
-                    data-cursor="hover"
+                   
                   >
                     {c.done && <Check size={12} strokeWidth={3} />}
                   </button>
@@ -311,7 +317,7 @@ export function NoteEditor() {
                   />
                   <button
                     onClick={() => set("checklist", note.checklist.filter((x) => x.id !== c.id))}
-                    className="btn-icon opacity-0 group-hover:opacity-100 !w-7 !h-7"
+                    className="btn-icon sm:opacity-0 group-hover:opacity-100 !w-7 !h-7"
                     aria-label="Remove task"
                   >
                     <X size={12} />
@@ -336,7 +342,7 @@ export function NoteEditor() {
             <p className="eyebrow mb-2">Tags</p>
             <div className="flex flex-wrap items-center gap-2">
               {note.tags.map((t) => (
-                <button key={t} onClick={() => set("tags", note.tags.filter((x) => x !== t))} className="chip hover:!border-danger/50 hover:!text-danger" title="Remove" data-cursor="hover">
+                <button key={t} onClick={() => set("tags", note.tags.filter((x) => x !== t))} className="inline-flex items-center gap-1 h-7 px-2.5 rounded-md bg-brand-soft text-brand text-[12.5px] font-medium hover:opacity-80" title="Remove">
                   #{t} <X size={10} />
                 </button>
               ))}
@@ -355,7 +361,7 @@ export function NoteEditor() {
           <section>
             <div className="flex items-center justify-between mb-2">
               <p className="eyebrow">Attachments</p>
-              <button className="btn btn-ghost btn-sm" onClick={() => fileInput.current?.click()} data-cursor="hover">
+              <button className="btn btn-ghost btn-sm" onClick={() => fileInput.current?.click()}>
                 <Paperclip size={13} /> Attach
               </button>
               <input ref={fileInput} type="file" multiple hidden onChange={(e) => onFiles(e.target.files)} />
@@ -363,7 +369,7 @@ export function NoteEditor() {
             {files && files.length > 0 ? (
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {files.map((f) => (
-                  <div key={f.id} className="group relative glass overflow-hidden">
+                  <div key={f.id} className="group relative rounded-xl border border-line bg-bg-elev overflow-hidden">
                     <FileThumb file={f} className="aspect-[4/3]" />
                     <div className="px-2.5 py-2 text-[11px]">
                       <p className="truncate">{f.name}</p>
@@ -390,13 +396,13 @@ export function NoteEditor() {
             ) : (
               <button
                 onClick={() => fileInput.current?.click()}
-                className="w-full h-20 rounded-xl border border-dashed border-line-strong text-[13px] text-fg-faint hover:text-fg hover:border-fg-muted transition-colors"
+                className="w-full h-24 rounded-xl border border-dashed border-line-strong bg-bg text-[13px] text-fg-faint hover:text-fg hover:border-brand hover:bg-brand-soft/40 transition-colors"
                 onDragOver={(e) => e.preventDefault()}
                 onDrop={(e) => {
                   e.preventDefault();
                   onFiles(e.dataTransfer.files);
                 }}
-                data-cursor="hover"
+               
               >
                 Drop images, video or documents here
               </button>
@@ -405,15 +411,15 @@ export function NoteEditor() {
         </div>
 
         {/* Footer */}
-        <div className="flex items-center gap-3 px-4 sm:px-6 h-16 border-t border-line shrink-0" style={{ marginBottom: "var(--sab)" }}>
+        <div className="flex items-center gap-3 px-4 sm:px-6 h-16 border-t border-line bg-bg shrink-0" style={{ marginBottom: "var(--sab)" }}>
           <span className="text-[12px] text-fg-faint hidden sm:inline">
             <span className="kbd">⌘ ↵</span> to save · <span className="kbd">esc</span> to close
           </span>
           <div className="ml-auto flex gap-2">
-            <button className="btn btn-ghost btn-sm" onClick={discard} data-cursor="hover">
+            <button className="btn btn-quiet btn-sm" onClick={discard}>
               Cancel
             </button>
-            <button className="btn btn-solid btn-sm" onClick={save} data-cursor="hover">
+            <button className="btn btn-solid btn-sm" onClick={save}>
               {isNew ? "Create note" : "Save changes"}
             </button>
           </div>

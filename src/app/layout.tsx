@@ -28,13 +28,13 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image" },
   manifest: "/manifest.webmanifest",
-  appleWebApp: { capable: true, statusBarStyle: "black-translucent", title: "MindVault" },
+  appleWebApp: { capable: true, statusBarStyle: "default", title: "MindVault" },
   applicationName: "MindVault",
   formatDetection: { telephone: false },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#050505",
+  themeColor: "#fafaf9",
   width: "device-width",
   initialScale: 1,
   // App-like on phones: no pinch/auto zoom on inputs; the keyboard resizes the layout instead of covering it.
@@ -44,7 +44,7 @@ export const viewport: Viewport = {
   interactiveWidget: "resizes-content",
 };
 
-const themeInit = `(function(){try{var t=localStorage.getItem('mv-theme');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t}}catch(e){}})();`;
+const themeInit = `(function(){try{var t=localStorage.getItem('mv-theme-v2');if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t}}catch(e){}})();`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

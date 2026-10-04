@@ -36,15 +36,15 @@ export function AddToCalendar({ note, className, compact = false, alarmMinutes }
 
   return (
     <div ref={ref} className={cn("relative inline-flex", className)}>
-      <a href={links.ics} className={cn("btn btn-ghost", compact ? "btn-sm" : "", "!rounded-r-none")} data-cursor="hover" title="Downloads a .ics — opens in Apple Calendar / Outlook">
+      <a href={links.ics} className={cn("btn btn-ghost", compact ? "btn-sm" : "", "!rounded-r-none")} title="Downloads a .ics — opens in Apple Calendar / Outlook">
         <CalendarPlus size={compact ? 13 : 15} /> {primaryLabel}
       </a>
-      <button type="button" onClick={() => setOpen((o) => !o)} className={cn("btn btn-ghost !rounded-l-none !border-l-0 !px-2.5", compact ? "btn-sm" : "")} aria-label="More calendar options" aria-expanded={open} data-cursor="hover">
+      <button type="button" onClick={() => setOpen((o) => !o)} className={cn("btn btn-ghost !rounded-l-none !border-l-0 !px-2.5", compact ? "btn-sm" : "")} aria-label="More calendar options" aria-expanded={open}>
         <ChevronDown size={14} />
       </button>
       <AnimatePresence>
         {open && (
-          <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 4 }} transition={{ duration: 0.18 }} className="absolute right-0 top-full mt-2 z-20 min-w-[220px] glass !bg-bg-elev p-1.5 shadow-2xl">
+          <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 4 }} transition={{ duration: 0.18 }} className="absolute right-0 top-full mt-2 z-20 min-w-[220px] rounded-xl border border-line bg-bg-elev p-1.5 shadow-[var(--shadow-pop)]">
             <a href={links.ics} className="block px-3 py-2 rounded-lg text-[13px] hover:bg-glass-hover" onClick={() => setOpen(false)}>
               Apple Calendar / Outlook (.ics)
             </a>

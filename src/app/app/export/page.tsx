@@ -62,11 +62,7 @@ export default function ExportPage() {
     <div className="max-w-4xl mx-auto px-4 md:px-8 py-8 md:py-10">
       <PageHeader
         eyebrow={`${notes?.length ?? 0} notes · ${files?.length ?? 0} files · ${formatBytes(size)}`}
-        title={
-          <>
-            Export<span className="serif-i text-brand">.</span>
-          </>
-        }
+        title="Export"
         subtitle="Take everything with you. Markdown and files in a ZIP, a printable PDF, or a full backup to move between devices."
       />
 
@@ -74,7 +70,7 @@ export default function ExportPage() {
         <p className="eyebrow mb-4">Period</p>
         <div className="flex flex-wrap gap-2 mb-6">
           {PERIODS.map((p) => (
-            <button key={p.id} onClick={() => setPeriod(p.id)} className={cn("h-9 px-4 rounded-full text-[13px] border transition-colors", period === p.id ? "bg-accent text-accent-fg border-accent" : "border-line text-fg-muted hover:text-fg")} data-cursor="hover">
+            <button key={p.id} onClick={() => setPeriod(p.id)} className="pill" data-on={period === p.id}>
               {p.label}
             </button>
           ))}
@@ -132,7 +128,7 @@ export default function ExportPage() {
         </div>
       </section>
 
-      <section className="glass p-5 md:p-6 border-danger/20">
+      <section className="glass p-5 md:p-6 !border-[#f4ddb0]">
         <p className="eyebrow mb-3">Danger zone</p>
         <div className="flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
           <p className="text-[13px] text-fg-muted max-w-md">Erase every note, file and conversation from this browser. This cannot be undone — download a backup first.</p>
@@ -145,7 +141,7 @@ export default function ExportPage() {
               notify("Vault erased");
             }}
             onBlur={() => setConfirmWipe(false)}
-            data-cursor="hover"
+           
           >
             <Trash2 size={13} /> {confirmWipe ? "Click again to confirm" : "Erase vault"}
           </button>
@@ -157,11 +153,11 @@ export default function ExportPage() {
 
 function Action({ icon, title, body, cta, onClick, busy }: { icon: React.ReactNode; title: string; body: string; cta: string; onClick: () => void; busy?: boolean }) {
   return (
-    <div className="rounded-xl border border-line p-4 flex flex-col">
-      <div className="text-fg-muted mb-3">{icon}</div>
-      <p className="text-[15px] font-medium">{title}</p>
+    <div className="rounded-xl border border-line bg-bg p-4 flex flex-col">
+      <div className="w-9 h-9 rounded-xl bg-bg-elev border border-line text-brand inline-flex items-center justify-center mb-3 shadow-[var(--shadow-sm)]">{icon}</div>
+      <p className="text-[15px] font-semibold tracking-[-0.01em]">{title}</p>
       <p className="text-[13px] text-fg-muted mt-1 mb-4 flex-1">{body}</p>
-      <button className="btn btn-ghost btn-sm w-fit" onClick={onClick} disabled={busy} data-cursor="hover">
+      <button className="btn btn-ghost btn-sm w-fit" onClick={onClick} disabled={busy}>
         {busy ? <span className="spinner" /> : cta}
       </button>
     </div>
