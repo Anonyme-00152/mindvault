@@ -769,7 +769,7 @@ select.field {
   box-shadow: inset 0 0 0 1.5px var(--brand);
 }
 .cal-cell[data-today="true"] .cal-num {
-  background: var(--brand);
+  background: var(--grad);
   color: #fff;
 }
 @media (max-width: 767px) {
@@ -780,6 +780,88 @@ select.field {
   }
 }
 
+}
+
+/* ── Signature accents & micro-interactions ───────────────────────────── */
+@layer components {
+  /* Gradient hairline border: background-clip trick keeps the card surface solid. */
+  .grad-border {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(var(--bg-elev), var(--bg-elev)) padding-box,
+      linear-gradient(120deg, color-mix(in srgb, #5b4bff 70%, transparent), color-mix(in srgb, #0a9fd8 55%, transparent) 55%, color-mix(in srgb, #12a86f 55%, transparent)) border-box;
+  }
+  .bar-grad {
+    background: var(--grad);
+  }
+  .check[data-on="true"] {
+    background: var(--grad);
+    border-color: transparent;
+    animation: check-pop 360ms var(--ease);
+  }
+  .check-mark path {
+    stroke-dasharray: 18;
+    stroke-dashoffset: 18;
+    animation: check-draw 320ms 60ms var(--ease) forwards;
+  }
+  .just-saved {
+    animation: just-saved 2.2s var(--ease);
+  }
+  .brief-word {
+    display: inline;
+    opacity: 0;
+    filter: blur(4px);
+    animation: brief-in 600ms var(--ease) forwards;
+  }
+  .aurora {
+    background:
+      radial-gradient(60% 120% at 0% 0%, color-mix(in srgb, #5b4bff 12%, transparent), transparent 60%),
+      radial-gradient(50% 120% at 100% 0%, color-mix(in srgb, #0a9fd8 10%, transparent), transparent 60%),
+      radial-gradient(60% 140% at 60% 120%, color-mix(in srgb, #12a86f 9%, transparent), transparent 60%);
+  }
+  .shine-sweep {
+    position: relative;
+    overflow: hidden;
+  }
+  .shine-sweep::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.55) 50%, transparent 60%);
+    transform: translateX(-100%);
+    animation: sweep 2.4s 0.6s var(--ease) 1;
+    pointer-events: none;
+  }
+}
+@keyframes check-pop {
+  0% { transform: scale(0.8); }
+  55% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+@keyframes check-draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes just-saved {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--brand) 45%, transparent), var(--shadow-card); border-color: var(--brand); }
+  60% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--brand) 0%, transparent), var(--shadow); border-color: var(--brand-line); }
+  100% { box-shadow: var(--shadow-card); }
+}
+@keyframes brief-in {
+  to { opacity: 1; filter: blur(0); }
+}
+@keyframes sweep {
+  to { transform: translateX(100%); }
+}
+@keyframes strike {
+  from { background-size: 0% 1.5px; }
+  to { background-size: 100% 1.5px; }
+}
+.strike-anim {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 55%;
+  background-size: 100% 1.5px;
+  animation: strike 300ms var(--ease);
 }
 
 /* The marketing site and sign-in are always light, whatever the app theme. */

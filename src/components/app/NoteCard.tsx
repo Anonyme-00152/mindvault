@@ -15,13 +15,20 @@ function Ring({ done, total }: { done: number; total: number }) {
   const c = 2 * Math.PI * 7;
   return (
     <svg width="16" height="16" viewBox="0 0 18 18" aria-hidden className="shrink-0">
+      <defs>
+        <linearGradient id="ring-grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#5b4bff" />
+          <stop offset="0.6" stopColor="#0a9fd8" />
+          <stop offset="1" stopColor="#12a86f" />
+        </linearGradient>
+      </defs>
       <circle cx="9" cy="9" r="7" fill="none" stroke="var(--line)" strokeWidth="2.5" />
       <circle
         cx="9"
         cy="9"
         r="7"
         fill="none"
-        stroke={done === total ? "var(--ok)" : "var(--brand)"}
+        stroke={done === total ? "var(--ok)" : "url(#ring-grad)"}
         strokeWidth="2.5"
         strokeLinecap="round"
         strokeDasharray={`${(done / total) * c} ${c}`}
@@ -48,6 +55,8 @@ export function NoteCard({
   const done = note.checklist.filter((c) => c.done).length;
   const total = note.checklist.length;
   const when = note.date ? format(new Date(note.date + "T00:00:00"), "d MMM") : null;
+  // A note saved a moment ago gets a brief glow so you can see where it landed.
+  const fresh = Date.now() - Date.parse(note.updatedAt) < 2500;
 
   if (compact) {
     return (
@@ -59,7 +68,7 @@ export function NoteCard({
         exit={{ opacity: 0, scale: 0.98 }}
         transition={{ duration: 0.35, delay: Math.min(index * 0.03, 0.3), ease: [0.22, 1, 0.36, 1] }}
         onClick={() => openEditor(note)}
-        className="group @container w-full text-left flex items-center gap-3 min-h-[56px] px-3.5 py-2.5 rounded-xl border border-line bg-bg-elev shadow-[var(--shadow-card)] hover:border-line-strong hover:shadow-[var(--shadow)] transition-[border-color,box-shadow]"
+        className={cn(fresh && "just-saved", "group @container w-full text-left flex items-center gap-3 min-h-[56px] px-3.5 py-2.5 rounded-xl border border-line bg-bg-elev shadow-[var(--shadow-card)] hover:border-line-strong hover:shadow-[var(--shadow)] transition-[border-color,box-shadow]")}
       >
         <span className="w-1 self-stretch rounded-full shrink-0" style={{ background: PRI_COLOR[note.priority] }} aria-hidden />
         <span className="w-12 shrink-0 text-[12px] tabular-nums text-fg-faint font-medium">{note.time ?? when ?? "—"}</span>
@@ -103,7 +112,7 @@ export function NoteCard({
       onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && (e.preventDefault(), openEditor(note))}
       tabIndex={0}
       role="button"
-      className="group cursor-pointer overflow-hidden flex flex-col rounded-2xl border border-line bg-bg-elev shadow-[var(--shadow-card)] hover:border-line-strong hover:shadow-[var(--shadow)] hover:-translate-y-px transition-[border-color,box-shadow,transform] duration-300"
+      className={cn(fresh && "just-saved", "group cursor-pointer overflow-hidden flex flex-col rounded-2xl border border-line bg-bg-elev shadow-[var(--shadow-card)] hover:border-line-strong hover:shadow-[var(--shadow)] hover:-translate-y-px transition-[border-color,box-shadow,transform] duration-300")}
     >
       {cover && (
         // eslint-disable-next-line @next/next/no-img-element
@@ -129,7 +138,7 @@ export function NoteCard({
               </span>
             </div>
             <div className="h-1.5 rounded-full bg-glass-hover overflow-hidden">
-              <div className="h-full rounded-full transition-[width] duration-500" style={{ width: `${(done / total) * 100}%`, background: done === total ? "var(--ok)" : "var(--brand)" }} />
+              <div className="h-full rounded-full transition-[width] duration-500" style={{ width: `${(done / total) * 100}%`, background: done === total ? "var(--ok)" : "var(--grad)" }} />
             </div>
           </div>
         )}

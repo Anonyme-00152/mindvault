@@ -151,7 +151,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
         {active && (
           <motion.span
             layoutId="nav-active"
-            className="absolute inset-0 rounded-lg bg-bg-elev border border-line shadow-[var(--shadow-card)]"
+            className="absolute inset-0 rounded-lg bg-bg-elev border border-line shadow-[var(--shadow-card)] before:absolute before:left-[-1px] before:top-2 before:bottom-2 before:w-[3px] before:rounded-full before:bg-grad"
             transition={{ type: "spring", stiffness: 500, damping: 40 }}
           />
         )}
@@ -344,7 +344,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
             className="fixed inset-x-0 z-[80] flex justify-center pointer-events-none bottom-[calc(5.25rem+var(--sab))] lg:bottom-6"
           >
             <div className="pointer-events-auto max-w-[calc(100vw-32px)] rounded-xl bg-[#16181d] text-white pl-3.5 pr-1.5 h-11 flex items-center gap-3 text-[13.5px] shadow-[var(--shadow-pop)]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#7cf2c4] shrink-0" />
+              <span className="w-5 h-5 rounded-full bg-grad shrink-0 inline-flex items-center justify-center text-white"><svg className="check-mark" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 12.5l4.5 4.5L19 7.5" /></svg></span>
               <span className="truncate">{toast.text}</span>
               {toast.action ? (
                 <button

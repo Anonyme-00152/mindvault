@@ -7,7 +7,7 @@ import { db } from "@/lib/db";
 import { useFiles, useNotes, useObjectURL } from "@/lib/hooks";
 import { useUI } from "@/lib/store";
 import type { FileKind, VaultFile } from "@/lib/types";
-import { cn, formatBytes } from "@/lib/utils";
+import { formatBytes } from "@/lib/utils";
 import { FileThumb } from "@/components/app/FileThumb";
 import { PageHeader } from "@/components/app/PageHeader";
 import { EmptyState } from "@/components/app/EmptyState";

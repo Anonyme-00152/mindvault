@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
-import { Bell, Calendar, Check, Clock, ImageIcon, Paperclip, Pin, PinOff, Plus, Share2, Trash2, X } from "lucide-react";
+import { Bell, Calendar, Clock, ImageIcon, Paperclip, Pin, PinOff, Plus, Share2, Trash2, X } from "lucide-react";
 import { addFile, db, deleteNote, upsertNote } from "@/lib/db";
 import { useFiles } from "@/lib/hooks";
 import { useUI } from "@/lib/store";
@@ -11,6 +11,7 @@ import { effectiveLead, leadLabel } from "@/lib/reminders";
 import { cn, formatBytes, uid } from "@/lib/utils";
 import { FileThumb } from "./FileThumb";
 import { PRI_COLOR } from "./NoteCard";
+import { CheckMark } from "./CheckMark";
 import { AddToCalendar, calendarLinks } from "./AddToCalendar";
 import { getLeadMin, shareNote } from "@/lib/pwa";
 
@@ -308,7 +309,7 @@ export function NoteEditor() {
                     aria-label={c.done ? "Mark undone" : "Mark done"}
                    
                   >
-                    {c.done && <Check size={12} strokeWidth={3} />}
+                    {c.done && <CheckMark />}
                   </button>
                   <input
                     value={c.text}

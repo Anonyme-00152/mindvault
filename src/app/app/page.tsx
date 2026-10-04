@@ -1,13 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { addDays, format, subDays } from "date-fns";
-import { motion } from "motion/react";
-import { ArrowRight, CalendarDays, Check, CheckSquare, Clock, FolderOpen, Pin, Plus, Sparkles, Target } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import { ArrowRight, CalendarDays, Check, CheckSquare, Clock, FolderOpen, Pin, Plus, Target } from "lucide-react";
+import { CheckMark } from "@/components/app/CheckMark";
+import { DailyBrief } from "@/components/app/DailyBrief";
 import { useFiles, useNotes } from "@/lib/hooks";
 import { useUI } from "@/lib/store";
-import { upsertNote } from "@/lib/db";
+import { db, upsertNote } from "@/lib/db";
 import type { Note } from "@/lib/types";
 import { formatBytes, toISODate } from "@/lib/utils";
 import { PageHeader } from "@/components/app/PageHeader";
@@ -18,7 +20,9 @@ import { PRI_COLOR } from "@/components/app/NoteCard";
 export default function Dashboard() {
   const notes = useNotes();
   const files = useFiles();
-  const { openEditor } = useUI();
+  const { openEditor, notify } = useUI();
+  // Tasks being ticked: they stay on screen for a beat (check draws, text strikes) before leaving.
+  const [ticking, setTicking] = useState<Set<string>>(new Set());
 
   const today = toISODate(new Date());
   const stats = useMemo(() => {
@@ -71,8 +75,26 @@ export default function Dashboard() {
     document.title = "Dashboard · MindVault";
   }, []);
 
-  async function toggleTask(note: Note, id: string) {
-    await upsertNote({ ...note, checklist: note.checklist.map((c) => (c.id === id ? { ...c, done: !c.done } : c)) });
+  function completeTask(note: Note, id: string) {
+    const key = note.id + id;
+    if (ticking.has(key)) return;
+    setTicking((s) => new Set(s).add(key));
+    window.setTimeout(async () => {
+      await upsertNote({ ...note, checklist: note.checklist.map((c) => (c.id === id ? { ...c, done: true } : c)) });
+      setTicking((s) => {
+        const n = new Set(s);
+        n.delete(key);
+        return n;
+      });
+      const text = note.checklist.find((c) => c.id === id)?.text ?? "Task";
+      notify(`Done: ${text.length > 36 ? text.slice(0, 36) + "…" : text}`, {
+        label: "Undo",
+        onClick: async () => {
+          const fresh = (await db.notes.get(note.id)) ?? note;
+          await upsertNote({ ...fresh, checklist: fresh.checklist.map((c) => (c.id === id ? { ...c, done: false } : c)) });
+        },
+      });
+    }, 650);
   }
 
   return (
@@ -80,24 +102,17 @@ export default function Dashboard() {
       <PageHeader
         eyebrow={format(new Date(), "EEEE, d MMMM")}
         title={`Good ${greeting()}`}
-        subtitle={
-          notes === null
-            ? "Opening your vault…"
-            : stats.today > 0
-              ? `You have ${stats.today} note${stats.today > 1 ? "s" : ""} scheduled today and ${stats.open} open task${stats.open === 1 ? "" : "s"}.`
-              : `Nothing scheduled today — ${stats.open} open task${stats.open === 1 ? "" : "s"} across your vault.`
-        }
+        subtitle={notes === null ? "Opening your vault…" : undefined}
         actions={
           <>
-            <Link href="/app/ask" className="btn btn-sm">
-              <Sparkles size={14} className="text-brand" /> Daily briefing
-            </Link>
-            <button className="btn btn-solid btn-sm" onClick={() => openEditor("new")}>
+            <button className="btn btn-solid btn-sm hidden lg:inline-flex" onClick={() => openEditor("new")}>
               <Plus size={14} /> New note
             </button>
           </>
         }
       />
+
+      {notes !== null && <DailyBrief notes={notes} />}
 
       {/* KPIs */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
@@ -160,21 +175,35 @@ export default function Dashboard() {
               <EmptyState icon={<Check size={18} />} title="All caught up" body="Every task in your vault is done." />
             ) : (
               <ul className="divide-y divide-line -my-1">
-                {openTasks.map(({ note, item }) => (
-                  <motion.li key={item.id + note.id} layout className="flex items-center gap-3 py-2.5">
-                    <button className="check" data-on={item.done} onClick={() => toggleTask(note, item.id)} aria-label={`Mark “${item.text}” done`}>
-                      {item.done && <Check size={12} strokeWidth={3} />}
-                    </button>
-                    <span className="flex-1 min-w-0">
-                      <span className="block text-[14px] truncate">{item.text}</span>
-                      <button onClick={() => openEditor(note)} className="block text-[12px] text-fg-faint hover:text-brand truncate max-w-full text-left">
-                        {note.title}
-                      </button>
-                    </span>
-                    {note.date && <span className="text-[12px] text-fg-faint tabular-nums shrink-0">{note.date === today ? "Today" : format(new Date(note.date + "T00:00:00"), "d MMM")}</span>}
-                    <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: PRI_COLOR[note.priority] }} title={note.priority} />
-                  </motion.li>
-                ))}
+                <AnimatePresence initial={false}>
+                  {openTasks.map(({ note, item }) => {
+                    const on = ticking.has(note.id + item.id);
+                    return (
+                      <motion.li
+                        key={item.id + note.id}
+                        layout
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0, transition: { duration: 0.25 } }}
+                        className="flex items-center gap-3 py-2.5 overflow-hidden"
+                      >
+                        <button className="check" data-on={on} onClick={() => completeTask(note, item.id)} aria-label={`Mark “${item.text}” done`}>
+                          {on && <CheckMark />}
+                        </button>
+                        <span className="flex-1 min-w-0">
+                          <span className={"block text-[14px] truncate transition-colors duration-300 " + (on ? "text-fg-faint" : "")}>
+                            <span className={on ? "strike-anim" : ""}>{item.text}</span>
+                          </span>
+                          <button onClick={() => openEditor(note)} className="block text-[12px] text-fg-faint hover:text-brand truncate max-w-full text-left">
+                            {note.title}
+                          </button>
+                        </span>
+                        {note.date && <span className="text-[12px] text-fg-faint tabular-nums shrink-0">{note.date === today ? "Today" : format(new Date(note.date + "T00:00:00"), "d MMM")}</span>}
+                        <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: PRI_COLOR[note.priority] }} title={note.priority} />
+                      </motion.li>
+                    );
+                  })}
+                </AnimatePresence>
               </ul>
             )}
           </Panel>
@@ -191,7 +220,7 @@ export default function Dashboard() {
                     animate={{ scaleY: 1 }}
                     transition={{ duration: 0.6, delay: 0.1 + i * 0.025, ease: [0.22, 1, 0.36, 1] }}
                     className="w-full rounded-[4px] origin-bottom"
-                    style={{ height: `${Math.max(6, (c / activity.max) * 100)}%`, background: c === 0 ? "var(--line)" : i === 13 ? "var(--brand)" : "color-mix(in srgb, var(--brand) 45%, var(--bg-elev))" }}
+                    style={{ height: `${Math.max(6, (c / activity.max) * 100)}%`, background: c === 0 ? "var(--line)" : i === 13 ? "var(--grad)" : "color-mix(in srgb, var(--brand) 40%, var(--bg-elev))" }}
                   />
                   <span className="pointer-events-none absolute -top-7 left-1/2 -translate-x-1/2 rounded-md bg-[#16181d] text-white text-[11px] px-1.5 py-0.5 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity tabular-nums">
                     {format(activity.days[i], "d MMM")} · {c}
@@ -284,7 +313,7 @@ function Kpi({ icon, tint, label, value, suffix = "", foot }: { icon: React.Reac
 function Bar({ value }: { value: number }) {
   return (
     <span className="w-full h-1.5 rounded-full bg-glass-hover overflow-hidden">
-      <span className="block h-full rounded-full bg-ok transition-[width] duration-700" style={{ width: `${value}%` }} />
+      <span className="block h-full rounded-full bar-grad transition-[width] duration-700" style={{ width: `${value}%` }} />
     </span>
   );
 }

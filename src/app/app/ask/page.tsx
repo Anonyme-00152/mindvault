@@ -108,7 +108,7 @@ export default function AskPage() {
     <div className="h-full flex flex-col max-w-3xl mx-auto w-full">
       {/* Header */}
       <div className="flex items-center gap-3 px-4 md:px-8 pt-5 pb-4 shrink-0 border-b border-line md:border-0">
-        <span className="w-10 h-10 rounded-xl bg-brand-soft text-brand border border-brand-line inline-flex items-center justify-center shrink-0">
+        <span className="w-10 h-10 rounded-xl bg-grad text-white inline-flex items-center justify-center shrink-0 shadow-[0_8px_20px_-8px_rgba(91,75,255,0.7)]">
           <Sparkles size={18} />
         </span>
         <div className="min-w-0 flex-1">
@@ -209,7 +209,7 @@ function Bubble({ role, at, children }: { role: "user" | "assistant"; at?: strin
   return (
     <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }} className={cn("flex gap-3", user ? "justify-end" : "justify-start")}>
       {!user && (
-        <span className="w-8 h-8 rounded-lg bg-brand-soft text-brand inline-flex items-center justify-center shrink-0 mt-0.5">
+        <span className="w-8 h-8 rounded-lg bg-grad text-white inline-flex items-center justify-center shrink-0 mt-0.5 shadow-[0_6px_14px_-6px_rgba(91,75,255,0.7)]">
           <Sparkles size={14} />
         </span>
       )}
@@ -218,7 +218,7 @@ function Bubble({ role, at, children }: { role: "user" | "assistant"; at?: strin
           className={
             user
               ? "rounded-2xl rounded-br-md bg-accent text-accent-fg px-4 py-2.5 text-[14.5px] leading-relaxed"
-              : "rounded-2xl rounded-tl-md bg-bg-elev border border-line shadow-[var(--shadow-card)] px-4 py-3 text-[14.5px] leading-relaxed text-fg [&_strong]:font-semibold"
+              : "rounded-2xl rounded-tl-md grad-border shadow-[var(--shadow-card)] px-4 py-3 text-[14.5px] leading-relaxed text-fg [&_strong]:font-semibold"
           }
         >
           {children}
